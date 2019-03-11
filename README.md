@@ -28,7 +28,12 @@
   2. TimeZone 설정 : `url: jdbc:mysql://127.0.0.1:3306/tdl_db?serverTimezone=Asia/Seoul`
   3. 데이터 삽입 및 [확인](./img/2.png)
 - 컨트롤러 생성(`ToDoListController.java`)
-  - 서비스 호출 및 view 생성(`list.html`)
+  - 서비스 호출 및 View 생성(`list.html`)
 - 서비스 생성(`ToDoListService.java`)
   - 저장소 호출 및 데이터 반환
-- [view 확인](./img/3.png)
+- [View 확인](./img/3.png)
+- [View 꾸미기](./img/4.png) : Boot Strap 활용
+  1. css 적용 시, 경로는 `/static/css`가 아니라 `/css`로 경로 설정
+  2. `<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>`
+  3. `<link rel="stylesheet" href="/css/bootstrap.min.css"/>`
+- [IntelliJ, MySQL 연동](./img/5.png)

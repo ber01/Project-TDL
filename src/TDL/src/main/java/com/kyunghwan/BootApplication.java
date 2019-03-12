@@ -23,7 +23,7 @@ public class BootApplication {
         return args -> {
             IntStream.rangeClosed(1, 20).forEach(index ->
                     toDoListRepository.save(ToDoList.builder()
-                        .description("테스트 설명 " + index)
+                        .description("처음 배우는 스프링 부트2 를 이용한 TDL Project " + index)
                         .status(true)
                         .createdDate(LocalDateTime.now())
                         .completedDate(LocalDateTime.now())

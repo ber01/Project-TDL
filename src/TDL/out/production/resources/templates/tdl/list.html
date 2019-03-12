@@ -3,36 +3,41 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>ToDoList</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&amp;subset=korean" rel="stylesheet">
+    <!--<link rel="stylesheet" href="/css/bootstrap.min.css"/>-->
+    <link rel="stylesheet" href="/css/test.css"/>
 </head>
 <body>
-<div class="container">
-    <div class="page-header">
-        <h1>To Do List</h1>
+<!--<div th:replace="/layout/header::header"></div>-->
+<div>
+    <div>
+        <!--<div th:each="tdl : ${tdlList}">-->
+            <!--<p th:text="${tdl.idx}"></p>-->
+            <!--<p th:text="${tdl.status}"></p>-->
+            <!--<p th:text="${tdl.description}"></p>-->
+            <!--<p th:text="${tdl.createdDate} ? ${#temporals.format(tdl.createdDate,'yyyy-MM-dd')} : ${tdl.createdDate}"></p>-->
+            <!--<p th:text="${tdl.completedDate} ? ${#temporals.format(tdl.completedDate,'yyyy-MM-dd')} : ${tdl.completedDate}"></p>-->
+            <!--<p>-->
+                <!--<i class="material-icons button edit">edit</i>-->
+                <!--<i class="material-icons button delete">delete</i>-->
+            <!--</p>-->
+        <!--</div>-->
+
+    <div class="test" th:each="tdl : ${tdlList}">
+        <h1 th:text="${tdl.description}"></h1>
+        <!--<h3 th:text="${tdl.status}"></h3>-->
+        <div id="date">
+            <p>
+                <i class="material-icons button edit">edit</i>
+                <i class="material-icons button delete">delete</i>
+            </p>
+        </div>
+        <div id="date" th:text="${tdl.createdDate} ? ${#temporals.format(tdl.createdDate,'yyyy-MM-dd')} : ${tdl.createdDate}"></div>
     </div>
-    <div id="mainHide">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th class="col-md-1">#</th>
-                <th class="col-md-2">완료 여부</th>
-                <th class="col-md-5">내용</th>
-                <th class="col-md-2">생성 날짜</th>
-                <th class="col-md-2">완료 날짜</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="tdl : ${tdlList}">
-                <td th:text="${tdl.idx}"></td>
-                <td th:text="${tdl.status}"></td>
-                <td th:text="${tdl.description}"></td>
-                <td th:text="${tdl.createdDate} ? ${#temporals.format(tdl.createdDate,'yyyy-MM-dd HH:mm')} : ${tdl.createdDate}"></td>
-                <td th:text="${tdl.completedDate} ? ${#temporals.format(tdl.completedDate,'yyyy-MM-dd HH:mm')} : ${tdl.completedDate}"></td>
-            </tr>
-            </tbody>
-        </table>
+
     </div>
-    <br/>
 </div>
+<!--<div th:replace="/layout/footer::footer"></div>-->
 </body>
 </html>

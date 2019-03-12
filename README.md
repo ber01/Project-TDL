@@ -37,3 +37,6 @@
   2. `<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>`
   3. `<link rel="stylesheet" href="/css/bootstrap.min.css"/>`
 - [IntelliJ, MySQL 연동](./img/5.png)
+
+### 3일차
+- [View 수정](./img/6.png)

@@ -1,43 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>ToDoList</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/base.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&amp;subset=korean" rel="stylesheet">
-    <!--<link rel="stylesheet" href="/css/bootstrap.min.css"/>-->
-    <link rel="stylesheet" href="/css/test.css"/>
+    <title>Project-TDL</title>
 </head>
 <body>
-<!--<div th:replace="/layout/header::header"></div>-->
-<div>
-    <div>
-        <!--<div th:each="tdl : ${tdlList}">-->
-            <!--<p th:text="${tdl.idx}"></p>-->
-            <!--<p th:text="${tdl.status}"></p>-->
-            <!--<p th:text="${tdl.description}"></p>-->
-            <!--<p th:text="${tdl.createdDate} ? ${#temporals.format(tdl.createdDate,'yyyy-MM-dd')} : ${tdl.createdDate}"></p>-->
-            <!--<p th:text="${tdl.completedDate} ? ${#temporals.format(tdl.completedDate,'yyyy-MM-dd')} : ${tdl.completedDate}"></p>-->
-            <!--<p>-->
-                <!--<i class="material-icons button edit">edit</i>-->
-                <!--<i class="material-icons button delete">delete</i>-->
-            <!--</p>-->
-        <!--</div>-->
 
-    <div class="test" th:each="tdl : ${tdlList}">
-        <h1 th:text="${tdl.description}"></h1>
-        <!--<h3 th:text="${tdl.status}"></h3>-->
-        <div id="date">
-            <p>
-                <i class="material-icons button edit">edit</i>
-                <i class="material-icons button delete">delete</i>
-            </p>
-        </div>
-        <div id="date" th:text="${tdl.createdDate} ? ${#temporals.format(tdl.createdDate,'yyyy-MM-dd')} : ${tdl.createdDate}"></div>
+<header>
+    <div class="title">
+        <span>
+            <img src="/css/img/github.png" alt="cat" width="50px" height="50px">
+            <span> To Do List </span>
+        </span>
     </div>
+</header>
 
+<div class="wrapper">
+    <div class="container" th:each="tdl : ${tdlList}">
+        <div class="column_left">
+            <h1 th:text="${tdl.description}"></h1>
+            <p id="date" th:text="${tdl.createdDate} ? ${#temporals.format(tdl.createdDate,'yyyy-MM-dd')} : ${tdl.createdDate}"></p>
+        </div>
+        <div class="column_right">
+            <h1 class="icon">
+                <i class="material-icons md-30">edit</i>
+                <i class="material-icons md-30">delete</i>
+            </h1>
+            <p th:text="${tdl.status}"></p>
+        </div>
     </div>
 </div>
-<!--<div th:replace="/layout/footer::footer"></div>-->
 </body>
 </html>

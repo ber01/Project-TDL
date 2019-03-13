@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+}
+
+body{
+   background-color: #f6f8fa
+}
+.container {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 2%;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+    display: flex;
+}
+.column_left {
+    flex: 4;
+}
+.column_right {
+    flex: 1;
+    text-align: right;
+}
+.material-icons.md-30{
+    font-size: 30px;
+}
+#date{
+    color: #586069!important;
+}
+header{
+    background-color: #24292e;
+}
+.title{
+    vertical-align: center;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    color: white;
+    padding: 1.5%;
+    font-size: 42px;
+}

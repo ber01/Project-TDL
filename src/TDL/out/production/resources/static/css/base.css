@@ -1,10 +1,40 @@
-*{
-    margin: 0;
+html{
+    position: relative;
+    min-height: 100%;
 }
 
 body{
-   background-color: #f6f8fa
+    margin: 0;
+    padding: 0;
+    background-color: #f6f8fa;
 }
+form{
+    margin-top: 3%;
+    text-align: center;
+}
+
+input{
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 1%;
+    font-size: 18px;
+}
+
+#todoDescription{
+    width: 30%;
+    margin-right: 10px;
+    text-align: center;
+}
+
+#todoBtn{
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+}
+
+.wrapper{
+    margin-bottom: 8%;
+}
+
 .container {
     background-color: white;
     border: 1px solid black;
@@ -27,16 +57,43 @@ body{
     font-size: 30px;
 }
 #date{
+    padding-top: 2%;
     color: #586069!important;
 }
 header{
     background-color: #24292e;
 }
-.title{
+.headerTitle{
     vertical-align: center;
     font-family: 'Merriweather', serif;
     text-align: center;
     color: white;
     padding: 1.5%;
     font-size: 42px;
+}
+#status{
+    padding-top: 10px;
+}
+
+button{
+    border: 0;
+    outline: 0;
+    padding: 0;
+}
+
+footer{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #24292e;
+}
+
+.footer_title{
+    vertical-align: center;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    padding: 0.5%;
+    color: whitesmoke;
+    font-size: 20px;
 }

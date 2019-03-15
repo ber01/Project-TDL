@@ -2,15 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/base.css?ver=3">
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Project-TDL</title>
 </head>
 <body>
-
 <header>
-    <div class="title">
+    <div class="headerTitle">
         <span>
             <img src="/css/img/github.png" alt="cat" width="50px" height="50px">
             <span> To Do List </span>
@@ -19,19 +18,29 @@
 </header>
 
 <div class="wrapper">
+    <div class="register">
+        <form action="/tdl" method="post">
+            <input id="todoDescription" maxlength="35" name="test" type="text">
+            <input id="todoBtn" type="submit" value="ADD">
+        </form>
+    </div>
+
     <div class="container" th:each="tdl : ${tdlList}">
         <div class="column_left">
             <h1 th:text="${tdl.description}"></h1>
             <p id="date" th:text="${tdl.createdDate} ? ${#temporals.format(tdl.createdDate,'yyyy-MM-dd')} : ${tdl.createdDate}"></p>
         </div>
         <div class="column_right">
-            <h1 class="icon">
-                <i class="material-icons md-30">edit</i>
-                <i class="material-icons md-30">delete</i>
-            </h1>
-            <p th:text="${tdl.status}"></p>
+            <button id="update"><i class="material-icons md-30">edit</i></button>
+            <button id="delete"><i class="material-icons md-30">delete</i></button>
+            <p id="status" th:text="${tdl.status}"></p>
         </div>
     </div>
 </div>
+<footer>
+    <div class="footer_title">
+        <p> Copyright@2019 Min.KH All Rights Reserved.</p>
+    </div>
+</footer>
 </body>
 </html>

@@ -35,5 +35,9 @@ public class ToDoList {
         this.createdDate = createdDate;
         this.completedDate = completedDate;
     }
+
+    public void setCreatedDate() {
+        this.createdDate = LocalDateTime.now();
+    }
 }
 

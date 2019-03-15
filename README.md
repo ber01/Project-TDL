@@ -43,3 +43,10 @@
 
 ### 4일차
 - [View 수정](./img/7.png)
+
+### 5일차
+- footer 생성
+- 폼 생성 및 등록 함수 생성(`postList`)
+  1. input text 값 받아오기(`@RequestBody`, `MultiValueMap`)
+  2. 서비스 호출 및 등록 로직 처리(`toDoListService.postList()`)
+  3. DataBase 저장 및 redirect

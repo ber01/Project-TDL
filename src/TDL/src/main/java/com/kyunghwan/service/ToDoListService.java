@@ -15,13 +15,22 @@ public class ToDoListService {
     ToDoListRepository toDoListRepository;
 
     public List<ToDoList> findTdlList(){
-        return toDoListRepository.findAll();
+        return toDoListRepository.findAllByOrderByIdx();
     }
 
-    public void postList(Object description) {
-        toDoListRepository.save(ToDoList.builder()
-                        .description(description + "")
-                        .status(false)
-                        .createdDate(LocalDateTime.now()).build());
+    public void postList(ToDoList toDoList) {
+        toDoList.setStatus(false);
+        toDoList.setCreatedDate(LocalDateTime.now());
+        toDoListRepository.save(toDoList);
+    }
+
+    public void deleteList(Integer idx) {
+        toDoListRepository.deleteById(idx);
+    }
+
+    public void completeList(Integer idx) {
+        ToDoList statusToDo = toDoListRepository.getOne(idx);
+        statusToDo.updateStatus();
+        toDoListRepository.save(statusToDo);
     }
 }

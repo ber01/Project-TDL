@@ -11,6 +11,7 @@
 |데이터베이스|MySQL 8.0.3|
 |빌드 툴|Gradle 5.2.1|
 
+## 학습과정
 ### 1일차
 - [프로젝트 생성 오류](./img/1.jpeg) / 해결 : IntelliJ 2018.3 다운로드
 - TDL 클래스 설계
@@ -46,7 +47,26 @@
 
 ### 5일차
 - footer 생성
-- 폼 생성 및 등록 함수 생성(`postList`)
+- 폼 생성 및 등록 함수 생성(`postTDL`)
   1. input text 값 받아오기(`@RequestBody`, `MultiValueMap`)
   2. 서비스 호출 및 등록 로직 처리(`toDoListService.postList()`)
   3. DataBase 저장 및 redirect
+
+### 6일차
+- `idx` 속성 값 지정
+  1. `delete`, `update`, `status` 버튼 idx value 지정
+  2. `<script>` 코드 작성
+      1. 반복되는 버튼 이므로 `class` 선택자 사용
+      2. 현재 객체의 idx 값을 받아야 하므로 `$(this).val()` 사용
+      3. `DELETE` 타입 설정
+- 삭제 함수 생성(`deleteTdl`)
+  1. idx값 받아오기(`@PathVariable`)
+  2. 서비스 호출 및 삭제 함수 생성(`deleteList`)
+      - 저장소 호출, 해당 idx 삭제
+- 완료 함수 생성(`statusTdl`)
+  1. idx값 받아오기(`@PathVariable`)
+  2. 서비스 호출 및 완료 함수 생성(`completeList`)
+      1. idx값에 해당하는 `ToDoList` 객체 불러오기
+      2. 객체 업데이트 함수 생성(`updateStatus`)
+          - `status` 및 `completedDate` 업데이트
+- [View 완성](./img/8.png)

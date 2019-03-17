@@ -1,10 +1,12 @@
 package com.kyunghwan.controller;
 
+import com.kyunghwan.domain.ToDoList;
 import com.kyunghwan.service.ToDoListService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -21,8 +23,20 @@ public class ToDoListController {
     }
 
     @PostMapping
-    public String postList(@RequestBody MultiValueMap<String, Object> data) {
-        toDoListService.postList(data.get("test").get(0));
-        return "redirect:/tdl/list";
+    public ResponseEntity<?> postTdl(@RequestBody ToDoList toDoList) {
+        toDoListService.postList(toDoList);
+        return new ResponseEntity<>("{}", HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{idx}")
+    public ResponseEntity<?> deleteTdl(@PathVariable("idx") Integer idx){
+        toDoListService.deleteList(idx);
+        return new ResponseEntity<>("{}", HttpStatus.OK);
+    }
+
+    @PutMapping("/complete/{idx}")
+    public ResponseEntity<?> statusTdl(@PathVariable("idx") Integer idx){
+        toDoListService.completeList(idx);
+        return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 }

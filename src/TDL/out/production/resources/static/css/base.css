@@ -8,7 +8,8 @@ body{
     padding: 0;
     background-color: #f6f8fa;
 }
-form{
+
+.register{
     margin-top: 3%;
     text-align: center;
 }
@@ -26,7 +27,7 @@ input{
     text-align: center;
 }
 
-#todoBtn{
+#insert{
     font-family: 'Merriweather', serif;
     font-weight: 700;
 }
@@ -56,9 +57,9 @@ input{
 .material-icons.md-30{
     font-size: 30px;
 }
-#date{
+.date{
     padding-top: 2%;
-    color: #586069!important;
+    color: gray;
 }
 header{
     background-color: #24292e;
@@ -71,14 +72,9 @@ header{
     padding: 1.5%;
     font-size: 42px;
 }
-#status{
-    padding-top: 10px;
-}
 
-button{
-    border: 0;
-    outline: 0;
-    padding: 0;
+#tdlStatus{
+    padding-top: 10px;
 }
 
 footer{
@@ -96,4 +92,28 @@ footer{
     padding: 0.5%;
     color: whitesmoke;
     font-size: 20px;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+a:active {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+button{
+    border: 0;
+    outline: 0;
+    padding: 0;
 }

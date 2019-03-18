@@ -28,9 +28,17 @@ public class ToDoListService {
         toDoListRepository.deleteById(idx);
     }
 
-    public void completeList(Integer idx) {
+    public void statusList(Integer idx) {
         ToDoList statusToDo = toDoListRepository.getOne(idx);
-        statusToDo.updateStatus();
+        statusToDo.statusUpdate();
         toDoListRepository.save(statusToDo);
+    }
+
+    public void updateList(Integer idx, String description) {
+        ToDoList updateToDo = toDoListRepository.getOne(idx);
+        System.out.println(updateToDo);
+        updateToDo.update(description);
+        toDoListRepository.save(updateToDo);
+        System.out.println(updateToDo);
     }
 }

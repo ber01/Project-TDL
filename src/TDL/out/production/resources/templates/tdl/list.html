@@ -19,26 +19,28 @@
 
 <div class="wrapper">
     <div class="register">
-        <input id="todoDescription" type="text" maxlength="35">
-        <input id="insert" type="submit" value="ADD">
+        <form onsubmit="return false">
+            <input id="todoDescription" type="text" maxlength="35">
+            <input id="insert" type="submit" value="ADD">
+        </form>
     </div>
 
     <div class="container" th:each="tdl : ${tdlList}">
         <div class="column_left">
             <h1 class="tdlDescription" th:text="${tdl.description}" th:if="${tdl.status}" style="color: green;"></h1>
-            <h1 class="tdlDescription" th:text="${tdl.description}" th:if="!${tdl.status}"></h1>
+            <h1 class="tdlDescription" th:text="${tdl.description}" contenteditable="false" th:if="!${tdl.status}"></h1>
             <p>
                 <span class="date" th:text="${tdl.createdDate} ? ${#temporals.format(tdl.createdDate,'yyyy-MM-dd')} : ${tdl.createdDate}"></span>
-                <span class="date" th:if="${tdl.status}" style="color: green" th:text="${tdl.completedDate} ? ${#temporals.format(tdl.completedDate,'yyyy-MM-dd')} : ${tdl.completedDate}"></span>
             </p>
         </div>
         <div class="column_right">
-            <h1>
+            <h1 class="icon">
                 <button class="complete" th:if="${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">check_box</i></button>
                 <button class="complete" th:unless="${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">check_box_outline_blank</i></button>
-                <button class="update" th:value="${tdl.idx}"><i class="material-icons md-30">edit</i></button>
+                <button class="update" th:if="!${tdl.status}" th:value="${tdl.idx}" data-th-status="a"><i class="material-icons md-30">edit</i></button>
                 <button class="delete" th:value="${tdl.idx}"><i class="material-icons md-30">delete</i></button>
             </h1>
+            <span class="date" th:if="${tdl.status}" style="color: green" th:text="${tdl.completedDate} ? ${#temporals.format(tdl.completedDate,'yyyy-MM-dd')} : ${tdl.completedDate}"></span>
         </div>
     </div>
 </div>
@@ -47,68 +49,8 @@
         <p> Copyright@2019 Min.KH All Rights Reserved.</p>
     </div>
 </footer>
-
 <script th:src="@{/js/jquery.min.js}"></script>
-
-<script>
-    $('#insert').click(function () {
-        var jsonData = JSON.stringify({
-            description : $('#todoDescription').val(),
-            status : null,
-            createdDate: null,
-            completedDate: null
-        });
-        $.ajax({
-            url: "/tdl",
-            type: "POST",
-            data: jsonData,
-            contentType: "application/json",
-            datType: "json",
-            success: function () {
-                alert("저장 성공!");
-                location.href = '/tdl/list';
-            },
-            error: function() {
-                alert("저장 실패!")
-            }
-        });
-    });
-</script>
-
-<script>
-    $('.delete').click(function () {
-        var data = $(this).val();
-        $.ajax({
-            url: "/tdl/" + data,
-            type: "DELETE",
-            success: function () {
-                alert("삭제 성공!");
-                location.href = '/tdl/list';
-            },
-            error: function() {
-                alert("삭제 실패!")
-            }
-        });
-    });
-</script>
-
-<script>
-    $('.complete').click(function () {
-        var data = $(this).val();
-        $.ajax({
-            url: "/tdl/complete/" + data,
-            type: "PUT",
-            contentType: "application/json",
-            datType: "json",
-            success: function () {
-                location.href = '/tdl/list';
-            },
-            error: function() {
-                alert("변화 실패!")
-            }
-        });
-    });
-</script>
+<script th:src="@{/js/base.js}"></script>
 
 </body>
 </html>

@@ -70,3 +70,18 @@
       2. 객체 업데이트 함수 생성(`updateStatus`)
           - `status` 및 `completedDate` 업데이트
 - [View 완성](./img/8.png)
+
+### 7일차
+- Ajax 통신 객체 생성
+  1. url : Controller의 `@PutMapping` 경로
+  2. type : `PUT`
+  3. data : 수정 할 `description`
+  4. contentType: `application/json`
+  5. dataType : `text`
+- 수정 함수 생성(`updateTdl`)
+  1. idx값 받아오기(`@PathVariable`)
+  2. 수정 할 description 받아오기(`@RequestBody`)
+  3. 서비스 호출 및 수정 함수 생성(`updateList`)
+      1. idx값에 해당하는 `ToDoList` 객체 불러오기
+      2. 객체 업데이트 함수 생성(`update`)
+          - `description` 업데이트

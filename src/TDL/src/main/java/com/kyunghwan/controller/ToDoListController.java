@@ -36,7 +36,13 @@ public class ToDoListController {
 
     @PutMapping("/complete/{idx}")
     public ResponseEntity<?> statusTdl(@PathVariable("idx") Integer idx){
-        toDoListService.completeList(idx);
+        toDoListService.statusList(idx);
+        return new ResponseEntity<>("{}", HttpStatus.OK);
+    }
+
+    @PutMapping("/{idx}")
+    public ResponseEntity<?> updateTdl(@PathVariable("idx") Integer idx, @RequestBody String description){
+        toDoListService.updateList(idx, description);
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 }

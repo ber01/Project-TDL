@@ -48,16 +48,16 @@ public class ToDoList {
                 '}';
     }
 
-    public void statusUpdate(ToDoList toDoList) {
-        this.description = toDoList.getDescription();
-        this.status = !toDoList.getStatus();
-        this.createdDate = toDoList.getCreatedDate();
-        this.completedDate = LocalDateTime.now();
-    }
-
-    public void updateStatus() {
+    public void statusUpdate() {
         this.status = !this.getStatus();
         this.completedDate = this.status ? LocalDateTime.now() : null;
+    }
+
+    public void update(String description) {
+        this.description = description;
+        this.status = this.getStatus();
+        this.createdDate = this.getCreatedDate();
+        this.completedDate = this.getCompletedDate();
     }
 }
 

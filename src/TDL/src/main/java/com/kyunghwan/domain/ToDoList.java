@@ -29,12 +29,16 @@ public class ToDoList {
     @Column
     private LocalDateTime completedDate;
 
+    @ManyToOne
+    private User user;
+
     @Builder
-    public ToDoList(String description, Boolean status, LocalDateTime createdDate, LocalDateTime completedDate) {
+    public ToDoList(String description, Boolean status, LocalDateTime createdDate, LocalDateTime completedDate, User user) {
         this.description = description;
         this.status = status;
         this.createdDate = createdDate;
         this.completedDate = completedDate;
+        this.user = user;
     }
 
     @Override

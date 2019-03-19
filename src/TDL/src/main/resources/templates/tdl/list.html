@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/base.css?ver=8">
+    <link rel="stylesheet" href="/css/base.css?ver=9">
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Project-TDL</title>
@@ -37,7 +37,7 @@
             <h1 class="icon">
                 <button class="complete" th:if="${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">check_box</i></button>
                 <button class="complete" th:unless="${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">check_box_outline_blank</i></button>
-                <button class="update" th:if="!${tdl.status}" th:value="${tdl.idx}" data-th-status="a"><i class="material-icons md-30">edit</i></button>
+                <button class="update" th:if="!${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">edit</i></button>
                 <button class="delete" th:value="${tdl.idx}"><i class="material-icons md-30">delete</i></button>
             </h1>
             <span class="date" th:if="${tdl.status}" style="color: green" th:text="${tdl.completedDate} ? ${#temporals.format(tdl.completedDate,'yyyy-MM-dd')} : ${tdl.completedDate}"></span>
@@ -50,7 +50,7 @@
     </div>
 </footer>
 <script th:src="@{/js/jquery.min.js}"></script>
-<script th:src="@{/js/base.js}"></script>
+<script th:src="@{/js/base.js?ver=1}"></script>
 
 </body>
 </html>

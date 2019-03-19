@@ -85,3 +85,33 @@
       1. idx값에 해당하는 `ToDoList` 객체 불러오기
       2. 객체 업데이트 함수 생성(`update`)
           - `description` 업데이트
+
+### 8일차
+- User, TDL - 1:N관계 설정하기
+- User 클래스 생성
+  1. 키(`idx`) - Integer
+  2. 아이디(`id`) - String
+  3. 비밀번호(`password`) - String
+  4. 이메일(`email`) - String
+  6. `OneToMany` : ToDoList(`toDoList`) - ToDoList
+- TDL 클래스 User 필드 추가
+  - `ManyToOne` : 유저(`user`) - user
+- 빌드 실패
+
+## 주요 기능
+### 1. 초기 화면
+![초기1](./img/9.png)
+### 2. To Do 등록
+![등록1](./img/10.png)
+![등록2](./img/11.png)
+![등록3](./img/12.png)
+### 3. To Do 완료
+![완료1](./img/13.png)
+### 4. To Do 삭제
+![삭제1](./img/14.png)
+![삭제2](./img/15.png)
+### 5. To Do 수정
+![수정1](./img/16.png)
+![수정2](./img/17.png)
+![수정3](./img/18.png)
+![수정4](./img/19.png)

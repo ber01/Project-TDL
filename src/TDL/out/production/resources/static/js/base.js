@@ -1,4 +1,5 @@
 $('#insert').click(function () {
+
     var jsonData = JSON.stringify({
         description: $('#todoDescription').val(),
         status: null,
@@ -56,8 +57,6 @@ var num = 1;
 
 $('.update').click(function () {
 
-    console.log(num);
-
     if (num === 1) {
         $(this).parent().parent().parent().find('.tdlDescription').attr('contenteditable', true);
         $(this).parent().parent().parent().find('.tdlDescription').trigger('focus');
@@ -82,7 +81,7 @@ $('.update').click(function () {
                 error: function () {
                     alert('수정 실패!')
                 }
-            })
+            });
 
             $(this).parent().parent().parent().find('.tdlDescription').attr('contenteditable', false);
             num = 1;

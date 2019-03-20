@@ -98,6 +98,23 @@
   - `ManyToOne` : 유저(`user`) - user
 - 빌드 실패
 
+### 9일차
+- User, TDL - 1:1관계 설정 해보기
+  1. ToDoList 클래스 User필드 추가
+  ~~~java
+  @OneToOne(fetch = FetchType.LAZY)
+  private User user;
+  ~~~
+  2. User 객체 생성 후 DB 삽입(`CommandLineRunner`)
+- User Controller, Repository, Service 생성
+- ToDoListController 클래스 수정
+  1. 현재 User의 정보에 대한 User 필드 생성
+  `private User user;`
+  2. list() 함수 실행 시 User가 null 이면 : User 객체 불러오기
+  3. 서비스 호출 및 현재 User와 등록 할 ToDoList 객체 넘기기
+- [User 객체 저장](./img/20.png)
+
+
 ## 주요 기능
 ### 1. 초기 화면
 ![초기1](./img/9.png)

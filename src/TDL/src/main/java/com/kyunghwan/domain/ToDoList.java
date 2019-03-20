@@ -1,14 +1,11 @@
 package com.kyunghwan.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity @Table @Getter @Setter
+@Entity @Table @Getter @Setter @ToString
 @NoArgsConstructor
 public class ToDoList {
 
@@ -29,7 +26,7 @@ public class ToDoList {
     @Column
     private LocalDateTime completedDate;
 
-    @ManyToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private User user;
 
     @Builder
@@ -39,17 +36,6 @@ public class ToDoList {
         this.createdDate = createdDate;
         this.completedDate = completedDate;
         this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "ToDoList{" +
-                "idx=" + idx +
-                ", description='" + description + '\'' +
-                ", status=" + status +
-                ", createdDate=" + createdDate +
-                ", completedDate=" + completedDate +
-                '}';
     }
 
     public void statusUpdate() {

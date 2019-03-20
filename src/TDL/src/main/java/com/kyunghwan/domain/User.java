@@ -1,13 +1,10 @@
 package com.kyunghwan.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Entity @Table @Getter @Setter
+@Entity @Table @Getter @Setter @ToString
 @NoArgsConstructor
 public class User {
 
@@ -21,13 +18,9 @@ public class User {
     @Column
     private String pwd;
 
-    @OneToMany(mappedBy = "user")
-    private ToDoList toDoList;
-
     @Builder
-    public User(String id, String pwd, ToDoList toDoList) {
+    public User(String id, String pwd) {
         this.id = id;
         this.pwd = pwd;
-        this.toDoList = toDoList;
     }
 }

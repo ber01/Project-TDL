@@ -4,8 +4,10 @@ $('#insert').click(function () {
         description: $('#todoDescription').val(),
         status: null,
         createdDate: null,
-        completedDate: null
+        completedDate: null,
+        user: null
     });
+
     $.ajax({
         url: "/tdl",
         type: "POST",

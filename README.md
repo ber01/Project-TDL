@@ -103,7 +103,7 @@
   1. ToDoList 클래스 User필드 추가
   ~~~java
   @OneToOne(fetch = FetchType.LAZY)
-  private User user;
+  private User user;Â
   ~~~
   2. User 객체 생성 후 DB 삽입(`CommandLineRunner`)
 - User Controller, Repository, Service 생성
@@ -113,6 +113,23 @@
   2. list() 함수 실행 시 User가 null 이면 : User 객체 불러오기
   3. 서비스 호출 및 현재 User와 등록 할 ToDoList 객체 넘기기
 - [User 객체 저장](./img/20.png)
+
+### 10일차
+- 로그인
+  1. `LoginController` 생성
+  2. [로그인 View(`login.html`)](./img/21.png) 생성
+- 회원가입
+  1. `RegisterController`생성
+  2. [회원가입 View(`register.html`)](./img/22.png) 생성
+  3. `id`, `email`, `pwd`를 포함한 Ajax 객체 생성, 회원가입 유저 DB 저장
+- 로그인 확인
+  1. `id`, `pwd` Ajax 객체 생성 후 데이터 전송
+  2. 서비스 호출 및 `id`, `pwd` 체크 함수 생성(`loginCheck`)
+  3. 로그인 확인
+      1. `id`가 없을 경우 : 실패
+      2. `id`가 있을 경우, `pwd` 확인
+          1. `pwd` 일치 : 성공(`redirect list`)
+          2. `pwd` 불일치 : 실패
 
 
 ## 주요 기능

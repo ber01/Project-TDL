@@ -16,11 +16,15 @@ public class User {
     private String id;
 
     @Column
+    private String email;
+
+    @Column
     private String pwd;
 
     @Builder
-    public User(String id, String pwd) {
+    public User(String id, String email, String pwd) {
         this.id = id;
+        this.email = email;
         this.pwd = pwd;
     }
 }

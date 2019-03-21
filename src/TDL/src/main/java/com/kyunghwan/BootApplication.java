@@ -17,7 +17,7 @@ public class BootApplication {
     @Bean
     public CommandLineRunner runner(UserRepository userRepository) throws Exception{
         return (args) -> {
-            userRepository.save(User.builder().id("테스트 아이디").pwd("테스트 비밀번호").build());
+            userRepository.save(User.builder().id("테스트 아이디").email("테스트 이메일").pwd("1234").build());
         };
     }
 }

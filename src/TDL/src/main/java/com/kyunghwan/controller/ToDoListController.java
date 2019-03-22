@@ -26,7 +26,6 @@ public class ToDoListController {
     @GetMapping("/list")
     public String list(Model model){
         if (user == null) this.user = userService.findUser();
-        System.out.println(this.user);
         model.addAttribute("tdlList", toDoListService.findTdlList());
         return "/tdl/list";
     }

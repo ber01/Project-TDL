@@ -10,6 +10,7 @@ $('#login_btn').click(function () {
         contentType: "application/json",
         dataType: "json",
         success: function () {
+            location.href = '/tdl/list';
         },
         error: function () {
             alert("로그인 실패!")

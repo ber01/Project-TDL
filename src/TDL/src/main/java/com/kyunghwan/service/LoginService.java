@@ -13,21 +13,14 @@ public class LoginService {
     @Autowired
     UserRepository userRepository;
 
-    public void loginCheck(Map<String, String> map) {
+    public boolean loginCheck(Map<String, String> map) {
 
         String id = map.get("id");
         String pwd = map.get("pwd");
 
         User user = userRepository.findById(id);
 
-        if (user == null) {
-            System.out.println("로그인 실패. 아이디가 없거나 오류");
-        } else {
-            if (!user.getPwd().equals(pwd)) {
-                System.out.println("로그인 실패. 비밀번호 불일치");
-            } else {
-                System.out.println("로그인 성공");
-            }
-        }
+        if (user == null) return false;
+        return user.getPwd().equals(pwd);
     }
 }

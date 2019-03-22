@@ -117,3 +117,8 @@ button{
     outline: 0;
     padding: 0;
 }
+
+#logout{
+    font-size: 20px;
+    padding-left: 6%;
+}

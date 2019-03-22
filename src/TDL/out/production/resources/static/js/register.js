@@ -11,7 +11,7 @@ $('#login_btn').click(function () {
         contentType: "application/json",
         dataType: "json",
         success: function () {
-            location.href = '/tdl/list';
+            location.href = '/login';
         },
         error: function () {
             alert("이동 실패!")

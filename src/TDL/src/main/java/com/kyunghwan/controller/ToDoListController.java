@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @Controller
 @RequestMapping("/tdl")
 public class ToDoListController {
@@ -25,7 +27,6 @@ public class ToDoListController {
 
     @GetMapping("/list")
     public String list(Model model){
-        if (user == null) this.user = userService.findUser();
         model.addAttribute("tdlList", toDoListService.findTdlList());
         return "/tdl/list";
     }
@@ -33,6 +34,12 @@ public class ToDoListController {
     @PostMapping
     public ResponseEntity<?> postTdl(@RequestBody ToDoList toDoList) {
         toDoListService.postList(toDoList, this.user);
+        return new ResponseEntity<>("{}", HttpStatus.CREATED);
+    }
+
+    @PostMapping("/current")
+    public ResponseEntity<?> test(@RequestBody Map<String, String> map){
+        this.user = userService.findUser(map);
         return new ResponseEntity<>("{}", HttpStatus.CREATED);
     }
 

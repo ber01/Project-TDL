@@ -10,7 +10,6 @@ $('#login_btn').click(function () {
         contentType: "application/json",
         dataType: "json",
         success: function () {
-            location.href = '/tdl/list';
             $.ajax({
                 url: "tdl/current",
                 type: "POST",

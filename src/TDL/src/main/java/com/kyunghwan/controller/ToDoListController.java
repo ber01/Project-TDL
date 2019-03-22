@@ -27,7 +27,10 @@ public class ToDoListController {
 
     @GetMapping("/list")
     public String list(Model model){
-        model.addAttribute("tdlList", toDoListService.findTdlList());
+        if (this.user == null) return "redirect:/login";
+        Integer idx = this.user.getIdx();
+        System.out.println("현재 User idx 값 : " + idx);
+        model.addAttribute("tdlList", toDoListService.findTdlList(idx));
         return "/tdl/list";
     }
 
@@ -40,7 +43,7 @@ public class ToDoListController {
     @PostMapping("/current")
     public ResponseEntity<?> test(@RequestBody Map<String, String> map){
         this.user = userService.findUser(map);
-        return new ResponseEntity<>("{}", HttpStatus.CREATED);
+        return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 
     @DeleteMapping("/{idx}")
@@ -59,5 +62,11 @@ public class ToDoListController {
     public ResponseEntity<?> updateTdl(@PathVariable("idx") Integer idx, @RequestBody String description){
         toDoListService.updateList(idx, description);
         return new ResponseEntity<>("{}", HttpStatus.OK);
+    }
+
+    @GetMapping("/logout")
+    public String logout(){
+        this.user = null;
+        return "redirect:/login";
     }
 }

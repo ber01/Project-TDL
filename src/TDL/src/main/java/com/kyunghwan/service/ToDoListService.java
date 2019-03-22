@@ -3,7 +3,6 @@ package com.kyunghwan.service;
 import com.kyunghwan.domain.ToDoList;
 import com.kyunghwan.domain.User;
 import com.kyunghwan.repository.ToDoListRepository;
-import com.kyunghwan.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +15,9 @@ public class ToDoListService {
     @Autowired
     ToDoListRepository toDoListRepository;
 
-    public List<ToDoList> findTdlList(){
-        return toDoListRepository.findAllByOrderByIdx();
+    public List<ToDoList> findTdlList(Integer idx){
+        return toDoListRepository.findByUserIdx(idx);
+        // return toDoListRepository.findAllByOrderByIdx();
     }
 
     public void postList(ToDoList toDoList, User user) {

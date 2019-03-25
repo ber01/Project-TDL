@@ -17,7 +17,6 @@ public class ToDoListService {
 
     public List<ToDoList> findTdlList(Integer idx){
         return toDoListRepository.findByUserIdx(idx);
-        // return toDoListRepository.findAllByOrderByIdx();
     }
 
     public void postList(ToDoList toDoList, User user) {

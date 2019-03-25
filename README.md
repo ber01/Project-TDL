@@ -136,6 +136,76 @@
 - 현재 유저에 따라 `to_do_list` 테이블에 `user_idx` [저장](./img/23.png)
 - 로그인한 유저가 작성한 `ToDoList` 출력
 
+### 12일차
+- `ManyToOne`, `OneToMany` 설정
+  - `FK`를 들고 있는 소유권이 있는 클래스에 `@ManyToOne` 어노테이션
+  - 소유권이 없는 클래스에 `@OneToMany` 어노테이션 및 `mappedBy` 소유권이 있는 클래스의 변수명
+  - 소유권이 없는 클래스는 `Collections`로 지정한다.
+  1. `ToDoList` 클래스가 `FK`로 `User` 포함
+
+  |idx|completedDate|createdDate|description|status|user_idx|
+  |:---:|:---:|:---:|:---:|:---:|:---:|
+
+  ~~~java
+  public Class ToDoList{
+
+    // more filed
+
+    @ManyToOne
+    private User user;
+  }
+  ~~~
+  ~~~java
+  public class User{
+
+    // more field
+
+    @OneToMany(mappedBy = "user")
+    private List<ToDoList> toDoLists;
+  }
+  ~~~
+  2. `User` 클래스가 `FK`로 `ToDoList` 포함
+
+  |idx|email|id|pwd|to_do_list_idx|
+  |:---:|:---:|:---:|:---:|:---:|
+
+  ~~~java
+  public Class ToDoList{
+
+    // more filed
+
+    @OneToMany(mappedBy = "toDoList");
+    private List<User> user;
+  }
+  ~~~
+  ~~~java
+  public class User{
+
+    // more field
+
+    @ManyToOne
+    private ToDoList toDoList;
+  }
+  ~~~
+  3. `User`가 `FK`로 `ToDoList`를 소유하고 있을 경우 `ToDo`가 등록됨에 따라 불필요하게 중복된 `User`의 정보가 삽입된다.
+
+  |idx|email|id|pwd|to_do_list_idx|
+  |:---:|:---:|:---:|:---:|:---:|
+  |1|test@ks.ac.kr|test1|12345|1|
+  |1|test@ks.ac.kr|test1|12345|2|
+  |...|...|...|...|...|
+  |1|test@ks.ac.kr|test1|12345|200|
+
+  |idx|completedDate|createdDate|description|status|
+  |:---:|:---:|:---:|:---:|:---:|:---:|
+  |1|-|Time()|description1|false|
+  |2|Time()|Time()|description2|true|
+  |...|...|...|...|...|
+  |200|-|Time()|description200|true|
+
+  4. `ToDoList`가 `FK`로 `User`를 소유하고 있을 경우 `ToDo`가 등록되어도 하나의 `User` 정보를 유지할 수 있다.
+  
+
 ## 주요 기능
 ### 1. 로그인 화면
 ![로그인](./img/21.png)

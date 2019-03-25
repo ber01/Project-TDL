@@ -3,6 +3,7 @@ package com.kyunghwan.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity @Table @Getter @Setter @ToString
 @NoArgsConstructor
@@ -20,6 +21,9 @@ public class User {
 
     @Column
     private String pwd;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<ToDoList> toDoList;
 
     @Builder
     public User(String id, String email, String pwd) {

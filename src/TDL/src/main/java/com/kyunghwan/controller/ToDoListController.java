@@ -29,7 +29,6 @@ public class ToDoListController {
     public String list(Model model){
         if (this.user == null) return "redirect:/login";
         Integer idx = this.user.getIdx();
-        System.out.println("현재 User idx 값 : " + idx);
         model.addAttribute("tdlList", toDoListService.findTdlList(idx));
         return "/tdl/list";
     }

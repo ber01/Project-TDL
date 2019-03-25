@@ -8,7 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ToDoListRepository extends JpaRepository<ToDoList, Integer> {
-    List<ToDoList> findAllByOrderByIdx();
-
     List<ToDoList> findByUserIdx(Integer idx);
 }

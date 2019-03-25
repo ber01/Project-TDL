@@ -4,9 +4,9 @@ spring:
     username: tdl_user
     password: 1q2w3e4r5t!
     driver-class-name: com.mysql.cj.jdbc.Driver
-#  jpa:
-#    hibernate:
-#      ddl-auto: create
+  jpa:
+    hibernate:
+      ddl-auto: create
   devtools:
     livereload:
       enabled: true

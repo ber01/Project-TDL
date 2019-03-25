@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity @Table @Getter @Setter @ToString
 @NoArgsConstructor
@@ -26,7 +27,7 @@ public class ToDoList {
     @Column
     private LocalDateTime completedDate;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private User user;
 
     @Builder

@@ -189,6 +189,7 @@
   ~~~
   3. `User`가 `FK`로 `ToDoList`를 소유하고 있을 경우 `ToDo`가 등록됨에 따라 불필요하게 중복된 `User`의 정보가 삽입된다.
 
+  `User_Table`
   |idx|email|id|pwd|to_do_list_idx|
   |:---:|:---:|:---:|:---:|:---:|
   |1|test@ks.ac.kr|test1|12345|1|
@@ -196,15 +197,32 @@
   |...|...|...|...|...|
   |1|test@ks.ac.kr|test1|12345|200|
 
+  `ToDoList_Table`
   |idx|completedDate|createdDate|description|status|
   |:---:|:---:|:---:|:---:|:---:|:---:|
   |1|-|Time()|description1|false|
   |2|Time()|Time()|description2|true|
   |...|...|...|...|...|
-  |200|-|Time()|description200|true|
+  |200|-|Time()|description200|false|
 
   4. `ToDoList`가 `FK`로 `User`를 소유하고 있을 경우 `ToDo`가 등록되어도 하나의 `User` 정보를 유지할 수 있다.
-  
+
+  `User_Table`
+  |idx|email|id|pwd|
+  |:---:|:---:|:---:|:---:|
+  |1|test1@ks.ac.kr|test1|12345|
+  |2|test2@ks.ac.kr|test2|12345|
+  |3|test3@ks.ac.kr|test3|12345|
+
+  `ToDoList_Table`
+  |idx|completedDate|createdDate|description|status|user_idx|
+  |:---:|:---:|:---:|:---:|:---:|:---:|
+  |1|-|Time()|description1|false|1|
+  |2|Time()|Time()|description2|true|1|
+  |...|...|...|...|...|...|
+  |199|Time()|Time()|description199|true|2|
+  |200|-|Time()|description200|false|3|
+
 
 ## 주요 기능
 ### 1. 로그인 화면

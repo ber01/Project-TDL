@@ -197,15 +197,18 @@
   |1|test@ks.ac.kr|test1|12345|2|
   |...|...|...|...|...|
   |1|test@ks.ac.kr|test1|12345|200|
+  
 
   `ToDoList_Table`
   
+  
   |idx|completedDate|createdDate|description|status|
-  |:---:|:---:|:---:|:---:|:---:|:---:|
+  |:---:|:---:|:---:|:---:|:---:|
   |1|-|Time()|description1|false|
   |2|Time()|Time()|description2|true|
   |...|...|...|...|...|
   |200|-|Time()|description200|false|
+  
 
   4. `ToDoList`가 `FK`로 `User`를 소유하고 있을 경우 `ToDo`가 등록되어도 하나의 `User` 정보를 유지할 수 있다.
 
@@ -218,6 +221,7 @@
   |3|test3@ks.ac.kr|test3|12345|
 
   `ToDoList_Table`
+ 
   
   |idx|completedDate|createdDate|description|status|user_idx|
   |:---:|:---:|:---:|:---:|:---:|:---:|

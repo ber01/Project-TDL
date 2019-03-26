@@ -4,9 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
-@Entity @Table @Getter @Setter @ToString
+@Entity @Table @Getter @Setter
 @NoArgsConstructor
 public class ToDoList {
 
@@ -29,15 +28,6 @@ public class ToDoList {
 
     @ManyToOne
     private User user;
-
-    @Builder
-    public ToDoList(String description, Boolean status, LocalDateTime createdDate, LocalDateTime completedDate, User user) {
-        this.description = description;
-        this.status = status;
-        this.createdDate = createdDate;
-        this.completedDate = completedDate;
-        this.user = user;
-    }
 
     public void statusUpdate() {
         this.status = !this.getStatus();

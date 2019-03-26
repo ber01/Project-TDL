@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -30,6 +31,20 @@ public class ToDoListController {
         if (this.user == null) return "redirect:/login";
         Integer idx = this.user.getIdx();
         model.addAttribute("tdlList", toDoListService.findTdlList(idx));
+
+        System.out.println("현재 user 의 idx 값 : " + user.getIdx());
+        List<ToDoList> toDoLists = user.getToDoList();
+
+        if (toDoLists.isEmpty()){
+            System.out.println("현재 등록 된 ToDo가 존재하지 않습니다.");
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (ToDoList t : toDoLists) {
+                sb.append(t.getIdx()).append(" ").append(t.getDescription()).append(" ").append(t.getStatus()).append(" ").append(t.getCreatedDate()).append(" ").append(t.getCompletedDate()).append("\n");
+            }
+            System.out.println(sb.toString() + "=========================");
+        }
+
         return "/tdl/list";
     }
 

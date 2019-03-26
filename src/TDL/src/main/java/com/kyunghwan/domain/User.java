@@ -3,9 +3,10 @@ package com.kyunghwan.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-@Entity @Table @Getter @Setter @ToString
+@Entity @Table @Getter @Setter
 @NoArgsConstructor
 public class User {
 
@@ -22,13 +23,11 @@ public class User {
     @Column
     private String pwd;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<ToDoList> toDoList;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    private List<ToDoList> toDoList = new ArrayList<>();
 
-    @Builder
-    public User(String id, String email, String pwd) {
-        this.id = id;
-        this.email = email;
-        this.pwd = pwd;
+    public void add(ToDoList toDoList){
+        toDoList.setUser(this);
+        getToDoList().add(toDoList);
     }
 }

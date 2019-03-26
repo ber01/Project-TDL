@@ -22,7 +22,7 @@ public class ToDoListService {
     public void postList(ToDoList toDoList, User user) {
         toDoList.setStatus(false);
         toDoList.setCreatedDate(LocalDateTime.now());
-        toDoList.setUser(user);
+        user.add(toDoList);
         toDoListRepository.save(toDoList);
     }
 

@@ -138,36 +138,23 @@
 
 ### 12일차
 - `ManyToOne`, `OneToMany` 설정
-  - `FK`를 들고 있는 소유권이 있는 클래스에 `@ManyToOne` 어노테이션
+  - `FK`를 들고 있는(소유권이 있는) 클래스에 `@ManyToOne` 어노테이션
   - 소유권이 없는 클래스에 `@OneToMany` 어노테이션 및 `mappedBy` 소유권이 있는 클래스의 변수명
-  - 소유권이 없는 클래스는 `Collections`로 지정한다.
-  1. `ToDoList` 클래스가 `FK`로 `User` 포함
+  - 소유권이 없는 클래스는 `Collections`로 지정
+- `User` 클래스가 `FK`로 `ToDoList`를 포함할 때
 
-  |idx|completedDate|createdDate|description|status|user_idx|
-  |:---:|:---:|:---:|:---:|:---:|:---:|
+  |idx|email|id|pwd|to_do_list_idx|
+  |:---:|:---:|:---:|:---:|:---:|
 
-  ~~~java
-  public Class ToDoList{
-
-    // more filed
-
-    @ManyToOne
-    private User user;
-  }
-  ~~~
   ~~~java
   public class User{
 
     // more field
 
-    @OneToMany(mappedBy = "user")
-    private List<ToDoList> toDoLists;
+    @ManyToOne
+    private ToDoList toDoList;
   }
   ~~~
-  2. `User` 클래스가 `FK`로 `ToDoList` 포함
-
-  |idx|email|id|pwd|to_do_list_idx|
-  |:---:|:---:|:---:|:---:|:---:|
 
   ~~~java
   public Class ToDoList{
@@ -178,42 +165,56 @@
     private List<User> user;
   }
   ~~~
-  ~~~java
-  public class User{
 
-    // more field
-
-    @ManyToOne
-    private ToDoList toDoList;
-  }
-  ~~~
-  3. `User`가 `FK`로 `ToDoList`를 소유하고 있을 경우 `ToDo`가 등록됨에 따라 불필요하게 중복된 `User`의 정보가 삽입된다.
+  `User`가 `FK`로 `ToDoList`를 소유하고 있을 경우 `ToDo`가 등록됨에 따라 불필요하게 중복된 `User`의 정보가 삽입된다.
 
   `User_Table`
-  
+
   |idx|email|id|pwd|to_do_list_idx|
   |:---:|:---:|:---:|:---:|:---:|
   |1|test@ks.ac.kr|test1|12345|1|
   |1|test@ks.ac.kr|test1|12345|2|
   |...|...|...|...|...|
   |1|test@ks.ac.kr|test1|12345|200|
-  
 
   `ToDoList_Table`
-  
-  
+
   |idx|completedDate|createdDate|description|status|
-  |:---:|:---:|:---:|:---:|:---:|
+  |:---:|:---:|:---:|:---:|:---:|:---:|
   |1|-|Time()|description1|false|
   |2|Time()|Time()|description2|true|
   |...|...|...|...|...|
   |200|-|Time()|description200|false|
-  
 
-  4. `ToDoList`가 `FK`로 `User`를 소유하고 있을 경우 `ToDo`가 등록되어도 하나의 `User` 정보를 유지할 수 있다.
+  `User` 클래스가 `FK`로 `ToDoList`를 포함하는 것은 적합하지 않다.
+- `ToDoList` 클래스가 `FK`로 `User`를 포함 할 때
+
+  |idx|completedDate|createdDate|description|status|user_idx|
+  |:---:|:---:|:---:|:---:|:---:|:---:|
+
+  ~~~java
+  public class User{
+
+    // more field
+
+    @OneToMany(mappedBy = "user")
+    private List<ToDoList> toDoLists;
+  }
+  ~~~
+  ~~~java
+  public Class ToDoList{
+
+    // more filed
+
+    @ManyToOne
+    private User user;
+  }
+  ~~~
+
+  `ToDoList`가 `FK`로 `User`를 소유하고 있을 경우 `ToDo`가 등록되어도 하나의 `User` 정보를 유지할 수 있다.
 
   `User_Table`
-  
+
   |idx|email|id|pwd|
   |:---:|:---:|:---:|:---:|
   |1|test1@ks.ac.kr|test1|12345|
@@ -221,8 +222,7 @@
   |3|test3@ks.ac.kr|test3|12345|
 
   `ToDoList_Table`
- 
-  
+
   |idx|completedDate|createdDate|description|status|user_idx|
   |:---:|:---:|:---:|:---:|:---:|:---:|
   |1|-|Time()|description1|false|1|
@@ -230,6 +230,31 @@
   |...|...|...|...|...|...|
   |199|Time()|Time()|description199|true|2|
   |200|-|Time()|description200|false|3|
+
+  `ToDoList` 클래스가 `FK`로 `User`를 포함하여야 한다.
+
+### 13일차  
+- 빌더 패턴을 사용하지 않기 때문에 `@Builder` 및 생성자 삭제
+- `ToDoList` 테이블에 `user_idx` 값만 들어가는 것이 아니라 현재 유저 객체(`this.user`)가 자신이 작성한 `ToDoList`를 가지고 있어야 한다.
+- `FetchType`을 `LAZY`에서 `EAGER`로 변경한다.
+- `List<ToDoList>`에 값을 추가하기 위하여 새로운 리스트를 생성한다.(`new ArrayList<>()`)
+- `User` 객체의 `List<ToDoList>` 필드에 저장할 `ToDoList` 를 `add` 한다.
+
+~~~java
+public Class User{
+
+  // more field
+
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+  private List<ToDoList> toDoList = new ArrayList<>();
+
+  public void add(ToDoList toDoList){
+      toDoList.setUser(this);
+      getToDoList().add(toDoList);
+  }
+}
+~~~
+- `tdl/list`로 `redirect`될 때 현재 유저가 가지고 있는 `ToDoList`객체 출력
 
 
 ## 주요 기능

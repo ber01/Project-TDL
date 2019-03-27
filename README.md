@@ -103,7 +103,7 @@
   1. ToDoList 클래스 User필드 추가
   ~~~java
   @OneToOne(fetch = FetchType.LAZY)
-  private User user;Â
+  private User user;
   ~~~
   2. User 객체 생성 후 DB 삽입(`CommandLineRunner`)
 - User Controller, Repository, Service 생성
@@ -180,7 +180,7 @@
   `ToDoList_Table`
 
   |idx|completedDate|createdDate|description|status|
-  |:---:|:---:|:---:|:---:|:---:|:---:|
+  |:---:|:---:|:---:|:---:|:---:|
   |1|-|Time()|description1|false|
   |2|Time()|Time()|description2|true|
   |...|...|...|...|...|
@@ -256,7 +256,39 @@ public Class User{
 ~~~
 - `tdl/list`로 `redirect`될 때 현재 유저가 가지고 있는 `ToDoList`객체 출력
 
+### 14일차
+`Spring Security` 적용해보기
+- Security 테스트 프로젝트 생성
+- `config` 패키지 및 `SecurityConfig` 클래스 생성
+- Spring Security 의존성 추가
+    ~~~
+    dependencies {
+        compile 'org.springframework.security:spring-security-web:4.2.7.RELEASE'
+        compile 'org.springframework.security:spring-security-config:4.2.7.RELEASE'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+    ~~~
+- `WebSecurityConfigurerAdapter` 상속 및 `configure()` 메소드 오버라이딩
+- `AuthenticationManagerBuilder` 클래스를 이용하여 인메모리 인증 코드 작성
+- `login.html` `index.html` `user/index.html` 추가
+- `application.yml` 설정
+  ~~~
+  server:
+    port: 8080
 
+  logging:
+    level:
+      root: WARN
+      org.springframework.web: INFO
+      org.springframework.security: INFO
+
+  spring:
+    thymeleaf:
+      cache: false
+  ~~~
+- 실패
 ## 주요 기능
 ### 1. 로그인 화면
 ![로그인](./img/21.png)

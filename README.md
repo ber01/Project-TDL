@@ -1,5 +1,15 @@
 # Project-TDL
-스프링 부트를 이용한 To Do List 프로젝트
+- 참여인원 : [민경환](https://www.github.com/ber01), [박동현](https://www.github.com/pdh6547), [신무곤](https://www.github.com/mkshin96), [신재홍](https://www.github.com/woghd9072), [양기석](https://www.github.com/yks095), [엄태균](https://www.github.com/etg6550), [임동훈](https://www.github.com/dongh9508), [최광민](https://www.github.com/rhkd4560), [하상엽](https://www.github.com/hagome0)
+
+## 목차
+1. [목적](#목적)
+2. [개발환경](#개발환경)
+3. [학습과정](#학습과정)
+4. [주요기능](#주요기능)
+
+## 목적
+- Spring Boot & JPA 학습 및 Web Application(To Do List) 개발
+- Spring Security 학습 및 로그인, 회원가입 구현
 
 ## 개발환경
 |도구|버전|
@@ -289,7 +299,7 @@ public Class User{
       cache: false
   ~~~
 - 실패
-## 주요 기능
+## 주요기능
 ### 1. 로그인 화면
 ![로그인](./img/21.png)
 ### 2. 회원가입 화면

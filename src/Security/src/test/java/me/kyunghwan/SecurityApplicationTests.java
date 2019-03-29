@@ -1,4 +1,4 @@
-package com.kyunghwan;
+package me.kyunghwan;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

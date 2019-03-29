@@ -1,4 +1,4 @@
-package com.kyunghwan;
+package me.kyunghwan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

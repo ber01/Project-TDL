@@ -364,6 +364,34 @@
   3. 로그인(인증) 후 `"/hello"` [화면](./img/28.png)
   4. 로그아웃 후 `"/login?logout"` [화면](./img/29.png)
 ---
+### 16일차
+`Spring security`를 이용한 구체적인 사용자 생성 - [참고 영상](https://www.youtube.com/watch?v=fG21HKnYt6g), [참고 사이트](https://docs.spring.io/spring-security/site/docs/5.0.2.BUILD-SNAPSHOT/reference/htmlsingle/#core-services-password-encoding)
+- 의존성 추가(JPA, lombok)
+  ~~~
+  dependencies {  
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    annotationProcessor 'org.projectlombok:lombok'  
+  }
+  ~~~
+- `user` 패키지 생성
+  1. `User` 클래스 생성
+      - `idx(Integer)`, `email(String)`, `password(String)` 필드 생성
+  2. `UserController` 클래스 생성
+      - 임의의 사용자를 생성하는 `create()` 메소드 생성
+  3. `UserRepository` 인터페이스 생성
+      - 생성된 유저를 DB에 저장
+  4. `UserService` 클래스 생성
+      - `UserDetailsService()` 인터페이스 상속 및 `loadUserByUsername()` 메소드 오버라이딩
+        1. `UserRepository`를 이용하여 유저 불러오기
+        2. `UserDetails` 클래스로 유저 캐스팅
+- 실행 : [에러](./img/30.png)
+- 패스워드 인코딩
+  1. `WebSecurityConfig` 클래스에 `PasswordEncorder` 속성 추가
+  2. `PasswordEncorder.encode()` 메소드를 이용하여 패스워드 인코딩 및 [저장](./img/31.png)
+- `UserDetails` 축소 - `UserDetails`를 상속받는 `User` 클래스 사용
+- `Spring Security` 테스트 프로젝트 종료
+
+---
 ## 주요기능
 ### 1. 로그인 화면
 ![로그인](./img/21.png)

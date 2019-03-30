@@ -390,8 +390,36 @@
   2. `PasswordEncorder.encode()` 메소드를 이용하여 패스워드 인코딩 및 [저장](./img/31.png)
 - `UserDetails` 축소 - `UserDetails`를 상속받는 `User` 클래스 사용
 - `Spring Security` 테스트 프로젝트 종료
+---
+### 17일차
+`ToDoList` 프로젝트에 `Spring Security` 적용하기
+- `Spring Security` 의존성 추가
+  ~~~
+  dependencies {  
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
+  }
+  ~~~
+- `config` 패키지 생성 및 `SecurityConfig` 클래스 생성
+  1. `WebSecurityConfigurerAdapter` 클래스 상속
+  2. `configure(HttpSecurity http)` 메소드 오버라이드
+      - 각종 `HttpSecurity` 추가
+      - `Spring Security` 적용 시 `csrf` 를 해제해줘야 `POST`가 정상작동 하므로 `csrf().disable()`을 꼭 추가
+      - `successForwardUrl()` 유저가 성공적으로 인증 완료 후 이동 할 위치 지정(해당 메소드는 `POST`)
+  3. 패스워드 인코딩 메소드 `passwordEncoder()` 생성
+- `UserService` 클래스 `UserDetailsService` 상속
+  1. `loadUserByUsername()` 메소드 오버라이드
+  2. 패스워드 인코딩 후 저장하는 `pwdEncoding()` 메소드 구현
+  3. `RegisterController` 에서 `UserService` 호출 및 `id`, `email`, `pwd` 값 받아오기
+  4. 유저 회원가입 및 DB [등록](./img/32.png)
+- Security 로그인은 `loadUserByUsername(String id)` 메소드가 자동으로 호출
+- `login.html` 수정
+  1. js 삭제 후 form 형태로 변경
+  2. form 값을 받아올 `login_id`, `login_pwd` name 속성 지정
+- 로그인 성공
 
 ---
+
 ## 주요기능
 ### 1. 로그인 화면
 ![로그인](./img/21.png)

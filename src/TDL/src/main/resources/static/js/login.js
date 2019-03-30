@@ -10,19 +10,20 @@ $('#login_btn').click(function () {
         contentType: "application/json",
         dataType: "json",
         success: function () {
-            $.ajax({
-                url: "tdl/current",
-                type: "POST",
-                data: jsonData,
-                contentType: "application/json",
-                dataType: "json",
-                success: function () {
-                    location.href = '/tdl/list'
-                },
-                error: function () {
-                    alert("에러")
-                }
-            })
+            location.href = '/tdl/list'
+            // $.ajax({
+            //     url: "tdl/current",
+            //     type: "POST",
+            //     data: jsonData,
+            //     contentType: "application/json",
+            //     dataType: "json",
+            //     success: function () {
+            //         location.href = '/tdl/list'
+            //     },
+            //     error: function () {
+            //         alert("에러")
+            //     }
+            // })
         },
         error: function () {
             alert("로그인 실패!")

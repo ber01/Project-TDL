@@ -418,6 +418,13 @@
   2. form 값을 받아올 `login_id`, `login_pwd` name 속성 지정
 - 로그인 성공
 
+Spring Security를 사용하여 `username` 가져오기
+- 로그인 성공이 되었을 때(`/tdl/list` 로 `redirect` 되었을 때) 현재 세션 사용자의 정보 받아오기
+  1. `SecurityContextHolder.getContext().getAuthentication().getPrincipal()` : Security User 객체 반환
+  2. `getName()` : Security User의 `username` 반환
+- 현재 세션 사용자의 정보를 이용하여 도메인 `User` 생성
+  1. 서비스 호출 및 `findCurrentUser()` 메소드 실행 : Secyrity `username`을 이용하여 도메인 `user` 반환
+  2. 서비스 호출 및 `findCurrentUserToDoList()` 메소드 실행 : 현재 `user`가 작성한 `ToDoList` 반환
 ---
 
 ## 주요기능

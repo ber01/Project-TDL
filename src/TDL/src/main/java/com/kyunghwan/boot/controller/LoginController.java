@@ -15,7 +15,7 @@ public class LoginController {
     }
 
     @PostMapping
-    public String loginSuccess(){
+    public String loginSuccess() {
         return "redirect:/tdl/list";
     }
 }

@@ -41,10 +41,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="298">
+              <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1812#1813#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,29 +54,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
+            <state relative-caret-position="406">
+              <caret line="32" column="51" lean-forward="true" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/config/SecurityConfig.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/LoginController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/RegisterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state relative-caret-position="404">
+              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,15 +82,51 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/RegisterController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/ToDoListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="918">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
               <folding>
-                <element signature="e#509#510#0" expanded="true" />
-                <element signature="e#555#556#0" expanded="true" />
-                <element signature="e#603#604#0" expanded="true" />
-                <element signature="e#637#638#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/ToDoListService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+              <folding>
+                <element signature="e#507#508#0" expanded="true" />
+                <element signature="e#567#568#0" expanded="true" />
+                <element signature="e#947#948#0" expanded="true" />
+                <element signature="e#997#998#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/repository/ToDoListRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/tdl/list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="n#style#0;n#h1#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,25 +145,25 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/TestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/repository/ToDoListRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/domain/ToDoList.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/base.css" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/ToDoListService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/register.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/register.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/login.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/LoginService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/domain/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/ToDoListController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/tdl/list.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/config/SecurityConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/RegisterController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/ToDoListController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/repository/ToDoListRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/ToDoListService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/register.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/login.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
       </list>
     </option>
   </component>
@@ -149,6 +183,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -272,7 +307,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -288,6 +322,7 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -346,12 +381,13 @@
       <workItem from="1553968603610" duration="70000" />
       <workItem from="1553968696698" duration="66000" />
       <workItem from="1553968787166" duration="167000" />
-      <workItem from="1553968987387" duration="226000" />
+      <workItem from="1553968987387" duration="615000" />
+      <workItem from="1554029465374" duration="4452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24337000" />
+    <option name="totallyTimeSpent" value="29178000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -366,7 +402,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49834436" visible="true" weight="0.18656716" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49834436" visible="true" weight="0.18869936" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -495,16 +531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/repository/ToDoListRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/BootApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -523,27 +549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="35" selection-start-column="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/LoginService.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.1.4.RELEASE/471a9157eb19b4cbe5881a74a8b8ac621d07f0ad/spring-security-core-5.1.4.RELEASE-sources.jar!/org/springframework/security/authentication/dao/DaoAuthenticationProvider.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -552,30 +557,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/repository/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/domain/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/tdl/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -589,36 +574,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/ToDoListService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#507#508#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-217">
           <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/ToDoListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#681#682#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -636,13 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.1.4.RELEASE/471a9157eb19b4cbe5881a74a8b8ac621d07f0ad/spring-security-core-5.1.4.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetails.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
@@ -653,20 +605,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/UserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/config/SecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="371">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/config/SecurityConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/tdl/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        <state relative-caret-position="378">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -675,23 +637,96 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="270">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/repository/ToDoListRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/ToDoListService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+          <folding>
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#567#568#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
+            <element signature="e#997#998#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/RegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="404">
+          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
           <folding>
-            <element signature="e#509#510#0" expanded="true" />
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#603#604#0" expanded="true" />
-            <element signature="e#637#638#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-56">
+          <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="32" column="51" lean-forward="true" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1812#1813#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kyunghwan/boot/controller/ToDoListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

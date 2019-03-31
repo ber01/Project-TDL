@@ -3,7 +3,6 @@ package com.kyunghwan.boot.service;
 import com.kyunghwan.boot.domain.ToDoList;
 import com.kyunghwan.boot.domain.User;
 import com.kyunghwan.boot.repository.ToDoListRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,9 +16,6 @@ public class ToDoListService {
         this.toDoListRepository = toDoListRepository;
     }
 
-    public List<ToDoList> findTdlList(Integer idx){
-        return toDoListRepository.findByUserIdx(idx);
-    }
 
     public void postList(ToDoList toDoList, User user) {
         toDoList.setStatus(false);
@@ -42,5 +38,9 @@ public class ToDoListService {
         ToDoList updateToDo = toDoListRepository.getOne(idx);
         updateToDo.update(description);
         toDoListRepository.save(updateToDo);
+    }
+
+    public List<ToDoList> findCurrentUserToDoList(User currentUser) {
+        return toDoListRepository.findByUserOrderByIdx(currentUser);
     }
 }

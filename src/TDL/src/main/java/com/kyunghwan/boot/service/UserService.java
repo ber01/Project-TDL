@@ -37,11 +37,14 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 
         User user = userRepository.findById(id);
-        System.out.println(user);
 
         List<GrantedAuthority> authorityList = new ArrayList<>();
         authorityList.add(new SimpleGrantedAuthority("ROLE_USER"));
 
         return new org.springframework.security.core.userdetails.User(user.getId(), user.getPwd(), authorityList);
+    }
+
+    public User findCurrentUser(String username) {
+        return userRepository.findById(username);
     }
 }

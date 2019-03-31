@@ -3,9 +3,12 @@ package com.kyunghwan.boot.controller;
 import com.kyunghwan.boot.domain.ToDoList;
 import com.kyunghwan.boot.domain.User;
 import com.kyunghwan.boot.service.ToDoListService;
+import com.kyunghwan.boot.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -13,21 +16,26 @@ import org.springframework.web.bind.annotation.*;
 public class ToDoListController {
 
     private final ToDoListService toDoListService;
+    private final UserService userService;
 
-    public ToDoListController(ToDoListService toDoListService){
+    public ToDoListController(ToDoListService toDoListService, UserService userService) {
         this.toDoListService = toDoListService;
+        this.userService = userService;
     }
 
-    private User user;
+    private User currentUser;
 
     @GetMapping("/list")
-    public String list(){
+    public String list(Model model){
+        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        currentUser = userService.findCurrentUser(user.getUsername());
+        model.addAttribute("tdlList", toDoListService.findCurrentUserToDoList(currentUser));
         return "/tdl/list";
     }
 
     @PostMapping
     public ResponseEntity<?> postTdl(@RequestBody ToDoList toDoList) {
-        toDoListService.postList(toDoList, this.user);
+        toDoListService.postList(toDoList, this.currentUser);
         return new ResponseEntity<>("{}", HttpStatus.CREATED);
     }
 

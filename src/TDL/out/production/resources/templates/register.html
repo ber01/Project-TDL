@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/login.css?ver=1">
+    <link rel="stylesheet" href="/css/login.css?ver=3">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <title>Sign up to TDL</title>
@@ -15,7 +15,10 @@
         <form onsubmit="return false">
             <div class="login_field">
                 <label for="login_id">User ID</label>
-                <input type="text" id="login_id">
+                <div class="login_id_field">
+                    <input type="text" id="login_id">
+                    <button id="login_duplication">Confirm</button>
+                </div>
             </div>
             <div class="login_field">
                 <label for="login_email">Email address</label>
@@ -32,6 +35,6 @@
     </div>
 </div>
 <script th:src="@{/js/jquery.min.js}"></script>
-<script th:src="@{/js/register.js?ver=1}"></script>
+<script th:src="@{/js/register.js?ver=2}"></script>
 </body>
 </html>

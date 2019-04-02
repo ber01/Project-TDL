@@ -426,6 +426,23 @@ Spring Security를 사용하여 `username` 가져오기
   1. 서비스 호출 및 `findCurrentUser()` 메소드 실행 : Secyrity `username`을 이용하여 도메인 `user` 반환
   2. 서비스 호출 및 `findCurrentUserToDoList()` 메소드 실행 : 현재 `user`가 작성한 `ToDoList` 반환
 ---
+### 18일차
+회원가입 관련 로직 추가
+- 아이디, 이메일, 비밀번호 미기재 시 회원가입 불가능 하게 변경(`register.js`)
+- 아이디 중복 검사
+  1. 중복 버튼 생성(`register.html`)
+  2. 버튼 클릭 시 입력 id값 전송(`register.js`)
+      - Ajax 객체 생성 후 반환
+        1. url: "/register/duplication"
+        2. type: "POST"
+        3. data: 입력 id 값,
+        4. contentType: "application/json",
+        5. dataType: "text"
+  3. `RegisterController` 중복 체크 함수 추가 : `idDuplication()`
+      - `register/duplication` 경로는 허용되지 않기에 `antMatchers()` 함수에 `/register/*` 패턴을 추가한다.
+      1. 서비스 호출 및 중복 체크 함수 실행 : `duplicationCheck()`
+      2. 저장소 호출 및 입력 id 조회
+---
 
 ## 주요기능
 ### 1. 로그인 화면

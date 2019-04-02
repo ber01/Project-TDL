@@ -1,5 +1,6 @@
 package com.kyunghwan.controller;
 
+import com.kyunghwan.service.RegisterService;
 import com.kyunghwan.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +17,11 @@ import java.util.Map;
 public class RegisterController {
 
     private final UserService userService;
+    private final RegisterService registerService;
 
-    public RegisterController(UserService userService) {
+    public RegisterController(UserService userService, RegisterService registerService) {
         this.userService = userService;
+        this.registerService = registerService;
     }
 
     @GetMapping
@@ -29,6 +32,11 @@ public class RegisterController {
     @PostMapping
     public ResponseEntity<?> postRegister(@RequestBody Map<String ,String> map){
         userService.pwdEncodingAndRegister(map);
-        return new ResponseEntity<>("{}", HttpStatus.OK);
+        return new ResponseEntity<>("{}", HttpStatus.CREATED);
+    }
+
+    @PostMapping("/duplication")
+    public ResponseEntity<?> idDuplication(@RequestBody String id){
+        return registerService.duplicationCheck(id) ? new ResponseEntity<>("{}", HttpStatus.OK) : new ResponseEntity<>("{}", HttpStatus.BAD_REQUEST);
     }
 }

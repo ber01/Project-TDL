@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/login.css">
@@ -12,7 +12,7 @@
         <div class="logo"><i class="material-icons md-80">view_list</i></div>
         <p class="login_comment">Sign in to TDL</p>
         <div class="login_body">
-            <form th:action="@{/login}" method="post">
+            <form th:action="@{/login}" method="POST">
                 <div class="login_field">
                     <label for="login_id">ID</label>
                     <input type="text" id="login_id" name="id">
@@ -31,6 +31,5 @@
         </div>
     </div>
     <script th:src="@{/js/jquery.min.js}"></script>
-<!--    <script th:src="@{/js/login.js}"></script>-->
 </body>
 </html>

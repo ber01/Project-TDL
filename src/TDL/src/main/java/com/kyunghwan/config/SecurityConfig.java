@@ -1,4 +1,4 @@
-package com.kyunghwan.boot.config;
+package com.kyunghwan.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,14 +15,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-            .authorizeRequests()
-                .antMatchers("/static/**", "/css/**", "/js/**", "/register").permitAll()
+                .authorizeRequests()
+                .antMatchers("/css/**", "/js/**", "/register").permitAll()
                 .anyRequest().authenticated()
             .and()
                 .formLogin()
                 .usernameParameter("id")
-                .successForwardUrl("/login")
-                .loginPage("/login").permitAll()
+                .loginPage("/login")
+                .successForwardUrl("/login").permitAll()
             .and()
                 .logout()
                 .logoutSuccessUrl("/login").permitAll();

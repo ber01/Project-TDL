@@ -25,11 +25,11 @@ public class UserService implements UserDetailsService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void pwdEncodingAndRegister(Map<String, String> map) {
+    public void pwdEncodingAndRegister(User requestUser) {
         User user = new User();
-        user.setId(map.get("id"));
-        user.setEmail(map.get("email"));
-        user.setPwd(passwordEncoder.encode(map.get("pwd")));
+        user.setId(requestUser.getId());
+        user.setEmail(requestUser.getEmail());
+        user.setPwd(passwordEncoder.encode(requestUser.getPwd()));
         userRepository.save(user);
     }
 

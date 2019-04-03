@@ -443,6 +443,18 @@ Spring Security를 사용하여 `username` 가져오기
       1. 서비스 호출 및 중복 체크 함수 실행 : `duplicationCheck()`
       2. 저장소 호출 및 입력 id 조회
 ---
+### 19일차
+유효성 체크(`validation`) 적용
+- `User` 테이블의 컬럼 `id`, `email`, `pwd`에 어노테이션 추가
+  1. 모든 컬럼은 `null` 값 X : `@Column(nullable = false)`
+  2. 컬럼에 빈칸 입력 X : `@NotEmpty`
+  3. `email` 컬럼은 이메일 형식으로 입력 : `@Email`
+- `postRegister()` 메소드 수정
+  1. 입력에 대한 유효성 검사를 위한 `@Valid` 어노테이션 추가
+  2. `User` 클래스에 제약을 걸었기에 매개변수를 `Map`에서 `User`로 변경
+  3. `error`를 받아오는 `BindingResult` 매개변수 추가
+  4. 에러메시지 출력
+---
 
 ## 주요기능
 ### 1. 로그인 화면

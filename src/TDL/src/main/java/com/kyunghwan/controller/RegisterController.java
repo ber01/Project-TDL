@@ -1,6 +1,6 @@
 package com.kyunghwan.controller;
 
-import com.kyunghwan.domain.User;
+import com.kyunghwan.domain.UserDto;
 import com.kyunghwan.service.RegisterService;
 import com.kyunghwan.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/register")
@@ -33,13 +32,12 @@ public class RegisterController {
     }
 
     @PostMapping
-    public ResponseEntity<?> postRegister(@Valid @RequestBody User user, BindingResult bindingResult){
-        System.out.println("postRegister 진입 ");
+    public ResponseEntity<?> postRegister(@Valid @RequestBody UserDto userDto, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             System.out.println(bindingResult.getAllErrors());
             return new ResponseEntity<>("{}", HttpStatus.BAD_REQUEST);
         }
-        userService.pwdEncodingAndRegister(user);
+        userService.pwdEncodingAndRegister(userDto);
         return new ResponseEntity<>("{}", HttpStatus.CREATED);
     }
 

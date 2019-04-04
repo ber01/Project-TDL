@@ -455,6 +455,27 @@ Spring Security를 사용하여 `username` 가져오기
   3. `error`를 받아오는 `BindingResult` 매개변수 추가
   4. 에러메시지 출력
 ---
+### 20일차
+- 알게 된 사실
+  1. `@Column(nullable = false)`를 사용하면 `Not null` 제약이 적용 된다.
+  2. `register`를 할 때 `id`에 값을 입력하지 않고 전송하여도 `User`가 생성된다.
+  3. 이 때 전송된 `id`값은 `null`이 아니라 `Empty Value`이다.
+  4. 테이블 생성 제약을 어긴것이 아니라 `DB`의 `id`값에 `Empty Value`가 저장된 것이다.
+
+유효성 체크(`validation`) 적용 II
+- 데이터 전송 및 유효성 검사 클래스 `UserDto` 생성
+  1. `id`, `email`, `pwd` 필드 생성
+  2. `null`, `EmptyValue`, `space`를 허용하지 않는 `@NotBlank` 어노테이션 추가
+  3. `UserDto`를 실제 DB에 저장되는 `User`로 변환하는 `toEntity()` 메소드 생성
+- `Register Controller`의 `postRegister()` 메소드 수정
+  1. `User`로 받아오는 매개변수를 `UserDto`로 수정
+  2. `UserService` 호출 및 패스워드 인코딩 & DB 저장 메소드 호출
+- `User Service`의 `pwdEncodingAndRegister()` 메소드 수정
+  1. `User`로 받아오는 매개변수를 `UserDto`로 수정
+  2. `User` 객체로 변환 하는 `toEntity()` 메소드 실행 및 `UserRepository` 호출 후 `DB` 저장
+
+
+---
 
 ## 주요기능
 ### 1. 로그인 화면

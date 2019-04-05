@@ -41,8 +41,13 @@ public class RegisterController {
         return new ResponseEntity<>("{}", HttpStatus.CREATED);
     }
 
-    @PostMapping("/duplication")
+    @PostMapping("/duplication/id")
     public ResponseEntity<?> idDuplication(@RequestBody String id){
-        return registerService.duplicationCheck(id) ? new ResponseEntity<>("{}", HttpStatus.OK) : new ResponseEntity<>("{}", HttpStatus.BAD_REQUEST);
+        return registerService.idDuplicationCheck(id) ? new ResponseEntity<>("{}", HttpStatus.OK) : new ResponseEntity<>("{}", HttpStatus.BAD_REQUEST);
+    }
+
+    @PostMapping("/duplication/email")
+    public ResponseEntity<?> emailDuplication(@RequestBody String email){
+        return registerService.emailDuplicationCheck(email) ? new ResponseEntity<>("{}", HttpStatus.OK) : new ResponseEntity<>("{}", HttpStatus.BAD_REQUEST);
     }
 }

@@ -12,7 +12,11 @@ public class RegisterService {
         this.userRepository = userRepository;
     }
 
-    public boolean duplicationCheck(String id) {
+    public boolean idDuplicationCheck(String id) {
         return userRepository.findById(id) == null;
+    }
+
+    public boolean emailDuplicationCheck(String email) {
+        return userRepository.findByEmail(email) == null;
     }
 }

@@ -7,19 +7,22 @@ import lombok.ToString;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Getter @Setter @NoArgsConstructor
 @ToString
 public class UserDto {
 
-    @NotBlank(message = "아이디를 입력하세요.")
+    @NotBlank
+    @Pattern(regexp = "[a-z0-9]{5,10}")
     private String id;
 
-    @NotBlank(message = "이메일을 입력하세요.")
-    @Email(message = "이메일 형식에 맞게 입력하세요.")
+    @NotBlank
+    @Email
     private String email;
 
-    @NotBlank(message = "비밀번호를 입력하세요.")
+    @NotBlank
+    @Pattern(regexp = "(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}")
     private String pwd;
 
     public User toEntity(String pwd) {

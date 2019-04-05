@@ -439,7 +439,7 @@ Spring Security를 사용하여 `username` 가져오기
         4. contentType: "application/json",
         5. dataType: "text"
   3. `RegisterController` 중복 체크 함수 추가 : `idDuplication()`
-      - `register/duplication` 경로는 허용되지 않기에 `antMatchers()` 함수에 `/register/*` 패턴을 추가한다.
+      - `register/duplication` 경로는 허용되지 않기에 `antMatchers()` 함수에 `/register/**` 패턴을 추가한다.
       1. 서비스 호출 및 중복 체크 함수 실행 : `duplicationCheck()`
       2. 저장소 호출 및 입력 id 조회
 ---
@@ -456,7 +456,7 @@ Spring Security를 사용하여 `username` 가져오기
   4. 에러메시지 출력
 ---
 ### 20일차
-- 알게 된 사실
+알게 된 사실
   1. `@Column(nullable = false)`를 사용하면 `Not null` 제약이 적용 된다.
   2. `register`를 할 때 `id`에 값을 입력하지 않고 전송하여도 `User`가 생성된다.
   3. 이 때 전송된 `id`값은 `null`이 아니라 `Empty Value`이다.
@@ -467,14 +467,30 @@ Spring Security를 사용하여 `username` 가져오기
   1. `id`, `email`, `pwd` 필드 생성
   2. `null`, `EmptyValue`, `space`를 허용하지 않는 `@NotBlank` 어노테이션 추가
   3. `UserDto`를 실제 DB에 저장되는 `User`로 변환하는 `toEntity()` 메소드 생성
-- `Register Controller`의 `postRegister()` 메소드 수정
+- `RegisterController`의 `postRegister()` 메소드 수정
   1. `User`로 받아오는 매개변수를 `UserDto`로 수정
   2. `UserService` 호출 및 패스워드 인코딩 & DB 저장 메소드 호출
-- `User Service`의 `pwdEncodingAndRegister()` 메소드 수정
+- `UserService`의 `pwdEncodingAndRegister()` 메소드 수정
   1. `User`로 받아오는 매개변수를 `UserDto`로 수정
   2. `User` 객체로 변환 하는 `toEntity()` 메소드 실행 및 `UserRepository` 호출 후 `DB` 저장
-
-
+---
+### 21일차
+유효성 체크(`validation`) 적용 마무리
+- `id` : 5~10자의 영문 소문자, 숫자, 중복 검사
+  1. `register.js`
+      - `/[a-z0-9]{5,10}/g`
+  2. `UserDto`
+      - `@Pattern(regexp = "[a-z0-9]{5,10}")`
+- `email` : Email 형식, 중복 검사
+  1. `register.js`
+      - `/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/`
+  2. `UserDto`
+      - `@Email`
+- `pwd` : 8~16자 영문 대 소문자, 숫자, 특수문자 1개 이상 혼합
+  1. `register.js`
+      - `/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/`
+  2. `UserDto`
+      - ` @Pattern(regexp = "(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}")`
 ---
 
 ## 주요기능
@@ -482,6 +498,20 @@ Spring Security를 사용하여 `username` 가져오기
 ![로그인](./img/21.png)
 ### 2. 회원가입 화면
 ![회원가입](./img/22.png)
+#### 2.1. 아이디 검사
+![비었을때](./img/33.png)
+![길이가작음](./img/34.png)
+![아이디중복](./img/35.png)
+![검사성공](./img/36.png)
+#### 2.2. 이메일 검사
+![비었을때](./img/37.png)
+![형식이아님](./img/38.png)
+![이메일중복](./img/39.png)
+![검사성공](./img/40.png)
+#### 2.3. 비밀번호 검사
+![비었을때](./img/41.png)
+![형식이아님](./img/42.png)
+![검사성공](./img/43.png)
 ### 3. 초기 화면
 ![초기1](./img/9.png)
 ### 4. To Do 등록

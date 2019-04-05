@@ -83,3 +83,10 @@ a{
     border-radius: 3px;
     font-size: 14px;
 }
+
+#id_error, #email_error, #pwd_error{
+    text-align: left;
+    margin-top: 9px;
+    margin-bottom: 0;
+    font-size: 11px;
+}

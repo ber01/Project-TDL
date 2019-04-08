@@ -1,0 +1,124 @@
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #f6f8fa;
+}
+
+.register{
+    margin-top: 3%;
+    text-align: center;
+}
+
+input{
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 1%;
+    font-size: 18px;
+}
+
+#todoDescription{
+    width: 30%;
+    margin-right: 10px;
+    text-align: center;
+}
+
+#insert{
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+}
+
+.wrapper{
+    margin-bottom: 8%;
+}
+
+.container {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 2%;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+    display: flex;
+}
+.column_left {
+    flex: 4;
+}
+.column_right {
+    flex: 1;
+    text-align: right;
+}
+.material-icons.md-30{
+    font-size: 30px;
+}
+.date{
+    padding-top: 2%;
+    color: gray;
+}
+header{
+    background-color: #24292e;
+}
+.headerTitle{
+    vertical-align: center;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    color: white;
+    padding: 1.5%;
+    font-size: 42px;
+}
+
+#tdlStatus{
+    padding-top: 10px;
+}
+
+footer{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #24292e;
+}
+
+.footer_title{
+    vertical-align: center;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    padding: 0.5%;
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+a:active {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+button{
+    border: 0;
+    outline: 0;
+    padding: 0;
+}
+
+#logout{
+    font-size: 20px;
+    padding-left: 6%;
+}

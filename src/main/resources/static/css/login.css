@@ -1,0 +1,100 @@
+.container{
+    margin-top: 7%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.material-icons.md-80{
+    font-size: 80px;
+}
+
+.login_comment{
+    margin-top: 10px;
+    font-size: 30px;
+    font-family: 'Playfair Display', serif;
+}
+
+.login_body{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #d8dee2;
+    padding: 20px;
+    width: 266px;
+}
+
+.login_field{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+label{
+    display: block;
+    margin-bottom: 1%;
+    text-align: left;
+}
+
+#login_id, #login_pwd, #login_email {
+    padding: 6px;
+    width: 248px;
+    height: 20px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+#login_btn{
+    margin-top: 4%;
+    padding: 6px;
+    width: 260px;
+    height: 40px;
+    border-radius: 3px;
+    font-size: 20px;
+    background: #000;
+    color: white;
+}
+
+.register_body{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: 1px solid #d8dee2;
+    width: 307px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.login_id_field{
+    display: flex;
+}
+
+#login_duplication{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 65px;
+    height: 35px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+#id_error, #email_error, #pwd_error{
+    text-align: left;
+    margin-top: 9px;
+    margin-bottom: 0;
+    font-size: 11px;
+}
+
+#login_error{
+    color: red;
+    text-align: left;
+    margin-top: 9px;
+    margin-bottom: 0;
+    font-size: 11px;
+}

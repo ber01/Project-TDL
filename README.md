@@ -492,10 +492,16 @@ Spring Security를 사용하여 `username` 가져오기
   2. `UserDto`
       - ` @Pattern(regexp = "(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}")`
 ---
+### 22일차
+[테스트 코드 작성 해보기](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-testing)
+
+---
 
 ## 주요기능
 ### 1. 로그인 화면
 ![로그인](./img/21.png)
+#### 1.1. 로그인 검사
+![로그인](./img/44.png)
 ### 2. 회원가입 화면
 ![회원가입](./img/22.png)
 #### 2.1. 아이디 검사

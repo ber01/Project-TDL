@@ -4,6 +4,7 @@ import com.kyunghwan.domain.ToDoList;
 import com.kyunghwan.domain.User;
 import com.kyunghwan.service.ToDoListService;
 import com.kyunghwan.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,16 +13,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/tdl")
 public class ToDoListController {
 
     private final ToDoListService toDoListService;
     private final UserService userService;
-
-    public ToDoListController(ToDoListService toDoListService, UserService userService) {
-        this.toDoListService = toDoListService;
-        this.userService = userService;
-    }
 
     private User currentUser;
 

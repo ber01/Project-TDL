@@ -3,6 +3,7 @@ package com.kyunghwan.controller;
 import com.kyunghwan.domain.UserDto;
 import com.kyunghwan.service.RegisterService;
 import com.kyunghwan.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,16 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/register")
 public class RegisterController {
 
     private final UserService userService;
     private final RegisterService registerService;
-
-    public RegisterController(UserService userService, RegisterService registerService) {
-        this.userService = userService;
-        this.registerService = registerService;
-    }
 
     @GetMapping
     public String register(){

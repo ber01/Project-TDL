@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/login.css?ver=1">
+    <link rel="stylesheet" href="/css/login.css?ver=2">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <title>Sign in to TDL</title>
@@ -21,7 +21,7 @@
                     <label for="login_pwd">Password</label>
                     <input type="password" id="login_pwd" name="password">
                 </div>
-                <p th:if="${param.error}" id="login_error"></p>
+                <p th:if="${param.error}" id="login_error">아이디 또는 비밀번호를 다시 확인하세요.</p>
                 <div class="login_field">
                     <input id=login_btn type="submit" value="Sign in">
                 </div>

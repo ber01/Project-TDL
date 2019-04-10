@@ -3,19 +3,17 @@ package com.kyunghwan.service;
 import com.kyunghwan.domain.ToDoList;
 import com.kyunghwan.domain.User;
 import com.kyunghwan.repository.ToDoListRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ToDoListService {
 
     private final ToDoListRepository toDoListRepository;
-
-    public ToDoListService(ToDoListRepository toDoListRepository) {
-        this.toDoListRepository = toDoListRepository;
-    }
 
     public void postList(ToDoList toDoList, User user) {
         toDoList.setStatus(false);

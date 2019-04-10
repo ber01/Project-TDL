@@ -493,8 +493,34 @@ Spring Security를 사용하여 `username` 가져오기
       - ` @Pattern(regexp = "(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}")`
 ---
 ### 22일차
-[테스트 코드 작성 해보기](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-testing)
+회원가입 테스트 코드 작성
 
+1. 초기 설정
+    - `@AutoConfigureMockMvc`
+      - `MockMvc`의 자동 구성을 활성화하고 구성하기 위해 테스트 클래스에 적용하는 어노테이션
+    - `MockMvc`
+      1. `Web Application Context`(스프링이 관리하는 `Bean`들의 컨테이너)의 모형
+      2. Ajax 혹은 client의 Request를 `Controller`가 처리하는 것과 같은 테스트 진행 가능
+
+2. 회원가입, 로그인 페이지 요청(`GET`)
+    - `status().isOk()`
+      - 응답 상태 코드가 HttpStatus.OK (200)
+
+3. 회원가입 성공(`POST`)
+    - `contentType(MediaType.APPLICATION_JSON)`
+      - contentType이 `"application/json"` 인지 확인
+    - `content()`
+      - 요청 본문을 UTF-8 문자열로 설정
+    - `ObjectMapper`
+      - 기본 POJO와의 JSON 읽기 및 쓰기 기능과 관련 변환 기능 제공
+    - `writeValueAsString()`
+      - Java 값을 모두 String으로 serialize
+    - `status().isCreated()`
+      - 응답 상태 코드가 HttpStatus.CREATE (201)
+
+4. 회원가입 오류(`id`, `email`, `pwd`)
+    - `status().isBadRequest()`
+      - 응답 상태 코드가 HttpStatus.BadRequest (400)
 ---
 
 ## 주요기능

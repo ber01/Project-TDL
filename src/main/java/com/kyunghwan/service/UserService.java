@@ -3,6 +3,7 @@ package com.kyunghwan.service;
 import com.kyunghwan.domain.User;
 import com.kyunghwan.domain.UserDto;
 import com.kyunghwan.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,15 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     public void pwdEncodingAndRegister(UserDto userDto) {
         userRepository.save(userDto.toEntity(passwordEncoder.encode(userDto.getPwd())));

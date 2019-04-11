@@ -21,13 +21,13 @@ input{
     font-size: 18px;
 }
 
-#todoDescription{
+#todoDescription, #todoDescriptionReply{
     width: 30%;
     margin-right: 10px;
     text-align: center;
 }
 
-#insert{
+#insert, #insertReply {
     font-family: 'Merriweather', serif;
     font-weight: 700;
 }
@@ -121,4 +121,38 @@ button{
 #logout{
     font-size: 20px;
     padding-left: 6%;
+}
+
+.reply{
+    color: gray;
+    margin-right: 2%;
+    text-align: right;
+}
+
+ul {
+
+    margin-left: auto;
+    margin-right: auto;
+
+    list-style: none;
+    padding: 0;
+
+    max-width: 633px;
+    width: 100%;
+}
+
+li {
+    padding: 5px 0 5px 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px dotted gray;
+    font-size: 15px;
+}
+
+li:last-child{
+    border-bottom: 0;
+}
+
+.hiddenList{
+    display: none;
+    text-align: center;
 }

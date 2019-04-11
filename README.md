@@ -522,6 +522,18 @@ Spring Security를 사용하여 `username` 가져오기
     - `status().isBadRequest()`
       - 응답 상태 코드가 HttpStatus.BadRequest (400)
 ---
+### 23일차
+계층형 `ToDoList` 만들기
+
+1. 도메인 생성(`ToDoListReply`)
+    - `Integer` - `idx`
+    - `String` -  `content`
+    - `LocalDateTime` - `createdDate`
+    - `LocalDateTime` - `modifiedDate`
+
+2. 댓글 View [생성](./img/45.png)
+
+---
 
 ## 주요기능
 ### 1. 로그인 화면

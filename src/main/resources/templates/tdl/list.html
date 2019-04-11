@@ -25,22 +25,36 @@
         </form>
     </div>
 
-    <div class="container" th:each="tdl : ${tdlList}">
-        <div class="column_left">
-            <h1 class="tdlDescription" th:text="${tdl.description}" th:if="${tdl.status}" style="color: green;"></h1>
-            <h1 class="tdlDescription" th:text="${tdl.description}" contenteditable="false" th:if="!${tdl.status}"></h1>
-            <p>
-                <span class="date" th:text="${tdl.createdDate} ? ${#temporals.format(tdl.createdDate,'yyyy-MM-dd')} : ${tdl.createdDate}"></span>
-            </p>
+    <div class="more_container" th:each="tdl : ${tdlList}">
+        <div class="container">
+            <div class="column_left">
+                <h1 class="tdlDescription" th:text="${tdl.description}" th:if="${tdl.status}" style="color: green;"></h1>
+                <h1 class="tdlDescription" th:text="${tdl.description}" contenteditable="false" th:if="!${tdl.status}"></h1>
+                <p>
+                    <span class="date" th:text="${tdl.createdDate} ? ${#temporals.format(tdl.createdDate,'yyyy-MM-dd')} : ${tdl.createdDate}"></span>
+                </p>
+            </div>
+            <div class="column_right">
+                <h1 class="icon">
+                    <button class="complete" th:if="${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">check_box</i></button>
+                    <button class="complete" th:unless="${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">check_box_outline_blank</i></button>
+                    <button class="update" th:if="!${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">edit</i></button>
+                    <button class="delete" th:value="${tdl.idx}"><i class="material-icons md-30">delete</i></button>
+                </h1>
+                <span class="date" th:if="${tdl.status}" style="color: green" th:text="${tdl.completedDate} ? ${#temporals.format(tdl.completedDate,'yyyy-MM-dd')} : ${tdl.completedDate}"></span>
+                <p class="reply">댓글보기</p>
+            </div>
         </div>
-        <div class="column_right">
-            <h1 class="icon">
-                <button class="complete" th:if="${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">check_box</i></button>
-                <button class="complete" th:unless="${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">check_box_outline_blank</i></button>
-                <button class="update" th:if="!${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">edit</i></button>
-                <button class="delete" th:value="${tdl.idx}"><i class="material-icons md-30">delete</i></button>
-            </h1>
-            <span class="date" th:if="${tdl.status}" style="color: green" th:text="${tdl.completedDate} ? ${#temporals.format(tdl.completedDate,'yyyy-MM-dd')} : ${tdl.completedDate}"></span>
+        <div class="hiddenList" style="display: none;">
+            <ul>
+                <li>내용</li>
+                <li>내용</li>
+                <li>내용</li>
+            </ul>
+            <form onsubmit="return false">
+                <input id="todoDescriptionReply" type="text" maxlength="35">
+                <input id="insertReply" type="submit" value="ADD">
+            </form>
         </div>
     </div>
 </div>

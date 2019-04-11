@@ -90,3 +90,14 @@ $('.update').click(function () {
         });
     }
 });
+
+$(document).ready(function () {
+    $(".reply").click(function () {
+        var c = $(".hiddenList");
+        if(c.is(":visible")){
+            c.slideUp();
+        }else{
+            c.slideDown();
+        }
+    });
+});

@@ -525,7 +525,7 @@ Spring Security를 사용하여 `username` 가져오기
 ### 23일차
 계층형 `ToDoList` 만들기
 
-1. 도메인 생성(`ToDoListReply`)
+1. 도메인 생성(`Comment`)
     - `Integer` - `idx`
     - `String` -  `content`
     - `LocalDateTime` - `createdDate`
@@ -534,6 +534,23 @@ Spring Security를 사용하여 `username` 가져오기
 2. 댓글 View [생성](./img/45.png)
 
 ---
+### 24일차
+댓글 등록, 데이터 베이스 저장
+1. `Comment`, `ToDoList`, `@ManyToOne`, `@OneToMany` 관계 설정
+    - 댓글 테이블에 리스트의 키 값이 있어야 중복 컬럼이 생기지 않는다.
+    - `Comment` 클래스에 `ToDoList` 필드 추가
+    - `ToDoList` 클래스에 `List<Comment>` 필드 추가
+2. 컨트롤러 생성(`CommentController`)
+    - `POST` 타입의 `/comment` 요청에 해당하는 메소드 생성
+    - 서비스 호출 및 `Comment` 객체 생성 및 등록 메소드 `registerComment()` 호출
+3. 서비스 생성(`CommentService`)
+    - `Comment` 객체 생성
+    - `ToDoListRepository` 호출 및 댓글이 달리는 `ToDoList`의 `idx`로 `ToDoList` 객체 불러오기
+    - `ToDoList` 객체와 `Comment` 객체 연결
+    - 저장소 호출 및 `Comment` DB 등록
+4. 저장소 생성(`CommentRepository`)
+5. Ajax 객체 생성(댓글 내용, 해당 todo의 idx) 및 전송 로직 생성(`comment.js`)
+6. DB 저장 [성공](./img/46.png)
 
 ## 주요기능
 ### 1. 로그인 화면
@@ -572,3 +589,6 @@ Spring Security를 사용하여 `username` 가져오기
 ![수정2](./img/17.png)
 ![수정3](./img/18.png)
 ![수정4](./img/19.png)
+### 8. 댓글 달기
+![댓글1](./img/47.png)
+![댓글2](./img/48.png)

@@ -55,48 +55,42 @@ $('.complete').click(function () {
     })
 });
 
-var num = 1;
-
 $('.update').click(function () {
 
-    if (num === 1) {
-        $(this).parent().parent().parent().find('.tdlDescription').attr('contenteditable', true);
-        $(this).parent().parent().parent().find('.tdlDescription').trigger('focus');
-        num = 2;
-    }
+    $(this).parent().parent().parent().find('.tdlDescription').attr('contenteditable', true);
+    $(this).parent().parent().parent().find('.tdlDescription').trigger('focus');
 
-    if (num === 2) {
+    $('.update').click(function () {
 
-        $('.update').click(function () {
-
-            var data = $(this).val();
-            var des = $(this).parent().parent().parent().find('.tdlDescription').text();
-            $.ajax({
-                url: '/tdl/' + data,
-                type: 'PUT',
-                data: des,
-                contentType: 'application/json',
-                dataType: 'text',
-                success: function () {
-                    location.href = "/tdl/list";
-                },
-                error: function () {
-                    alert('수정 실패!')
-                }
-            });
-
-            $(this).parent().parent().parent().find('.tdlDescription').attr('contenteditable', false);
-            num = 1;
+        var data = $(this).val();
+        var des = $(this).parent().parent().parent().find('.tdlDescription').text();
+        $.ajax({
+            url: '/tdl/' + data,
+            type: 'PUT',
+            data: des,
+            contentType: 'application/json',
+            dataType: 'text',
+            success: function () {
+                location.href = "/tdl/list";
+            },
+            error: function () {
+                alert('수정 실패!')
+            }
         });
-    }
+
+        $(this).parent().parent().parent().find('.tdlDescription').attr('contenteditable', false);
+    });
 });
 
 $(document).ready(function () {
-    $(".reply").click(function () {
-        var c = $(".hiddenList");
-        if(c.is(":visible")){
+
+    $('.comment').click(function () {
+
+        var c = $(this).parent().parent().parent().parent().find('.hiddenList');
+
+        if(c.is(':visible')){
             c.slideUp();
-        }else{
+        } else{
             c.slideDown();
         }
     });

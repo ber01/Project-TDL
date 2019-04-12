@@ -26,6 +26,7 @@ public class ToDoListController {
     public String list(Model model){
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         currentUser = userService.findCurrentUser(user.getUsername());
+        if (currentUser == null) return "redirect:/logout";
         model.addAttribute("tdlList", toDoListService.findCurrentUserTdl(currentUser));
         return "/tdl/list";
     }

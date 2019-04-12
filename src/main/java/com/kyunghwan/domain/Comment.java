@@ -1,15 +1,15 @@
 package com.kyunghwan.domain;
 
-import lombok.Data;
-import org.springframework.stereotype.Controller;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Data
-@Controller
-@Entity
-public class ToDoListReply {
+@Entity @Table @Getter @Setter
+@NoArgsConstructor
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,4 +24,7 @@ public class ToDoListReply {
 
     @Column
     private LocalDateTime modifiedDate;
+
+    @ManyToOne
+    private ToDoList toDoList;
 }

@@ -40,20 +40,18 @@
                     <button class="complete" th:unless="${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">check_box_outline_blank</i></button>
                     <button class="update" th:if="!${tdl.status}" th:value="${tdl.idx}"><i class="material-icons md-30">edit</i></button>
                     <button class="delete" th:value="${tdl.idx}"><i class="material-icons md-30">delete</i></button>
+                    <button class="comment" th:value="${tdl.idx}"><i class="material-icons md-30">comment</i></button>
                 </h1>
                 <span class="date" th:if="${tdl.status}" style="color: green" th:text="${tdl.completedDate} ? ${#temporals.format(tdl.completedDate,'yyyy-MM-dd')} : ${tdl.completedDate}"></span>
-                <p class="reply">댓글보기</p>
             </div>
         </div>
-        <div class="hiddenList" style="display: none;">
+        <div class="hiddenList">
             <ul>
-                <li>내용</li>
-                <li>내용</li>
-                <li>내용</li>
+                <li></li>
             </ul>
             <form onsubmit="return false">
-                <input id="todoDescriptionReply" type="text" maxlength="35">
-                <input id="insertReply" type="submit" value="ADD">
+                <input class="todoDescriptionReply" type="text" maxlength="35">
+                <input class="insertReply" type="submit" value="ADD">
             </form>
         </div>
     </div>
@@ -65,6 +63,7 @@
 </footer>
 <script th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/js/base.js?ver=2}"></script>
+<script th:src="@{/js/comment.js}"></script>
 
 </body>
 </html>

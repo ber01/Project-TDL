@@ -21,13 +21,13 @@ input{
     font-size: 18px;
 }
 
-#todoDescription, #todoDescriptionReply{
+#todoDescription, .todoDescriptionReply{
     width: 30%;
     margin-right: 10px;
     text-align: center;
 }
 
-#insert, #insertReply {
+#insert, .insertReply {
     font-family: 'Merriweather', serif;
     font-weight: 700;
 }
@@ -124,6 +124,7 @@ button{
 }
 
 .reply{
+    font-size: 15px;
     color: gray;
     margin-right: 2%;
     text-align: right;
@@ -142,6 +143,7 @@ ul {
 }
 
 li {
+    text-align: left;
     padding: 5px 0 5px 5px;
     margin-bottom: 5px;
     border-bottom: 1px dotted gray;

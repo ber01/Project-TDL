@@ -21,8 +21,14 @@ input{
     font-size: 18px;
 }
 
-#todoDescription, .todoDescriptionReply{
+#todoDescription{
     width: 30%;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.todoDescriptionReply {
+    width: 28%;
     margin-right: 10px;
     text-align: center;
 }
@@ -131,14 +137,13 @@ button{
 }
 
 ul {
-
     margin-left: auto;
     margin-right: auto;
 
     list-style: none;
     padding: 0;
 
-    max-width: 633px;
+    max-width: 580px;
     width: 100%;
 }
 
@@ -147,7 +152,7 @@ li {
     padding: 5px 0 5px 5px;
     margin-bottom: 5px;
     border-bottom: 1px dotted gray;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 li:last-child{

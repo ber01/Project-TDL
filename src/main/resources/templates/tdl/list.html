@@ -47,7 +47,7 @@
         </div>
         <div class="hiddenList">
             <ul>
-                <li></li>
+                <li th:each="comment : ${tdl.commentList}" th:text="${comment.content}"></li>
             </ul>
             <form onsubmit="return false">
                 <input class="todoDescriptionReply" type="text" maxlength="35">

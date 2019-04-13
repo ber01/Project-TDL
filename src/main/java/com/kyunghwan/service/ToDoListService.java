@@ -41,4 +41,8 @@ public class ToDoListService {
     public List<ToDoList> findCurrentUserTdl(User currentUser) {
         return toDoListRepository.findByUserOrderByIdx(currentUser);
     }
+
+    public ToDoList getTdl(Integer idx) {
+        return toDoListRepository.getOne(idx);
+    }
 }

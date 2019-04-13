@@ -3,11 +3,12 @@ package com.kyunghwan.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity @Table @Getter @Setter
+@Entity @Table @Getter @Setter @ToString
 @NoArgsConstructor
 public class Comment {
 

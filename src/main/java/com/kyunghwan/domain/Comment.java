@@ -28,4 +28,10 @@ public class Comment {
 
     @ManyToOne
     private ToDoList toDoList;
+
+    public void update(String content) {
+        this.content = content;
+        this.createdDate = this.getCreatedDate();
+        this.modifiedDate = LocalDateTime.now();
+    }
 }

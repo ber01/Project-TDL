@@ -26,4 +26,14 @@ public class CommentService {
         toDoList.add(comment);
         commentRepository.save(comment);
     }
+
+    public void deleteComment(Integer idx) {
+        commentRepository.deleteById(idx);
+    }
+
+    public void modifyComment(Integer idx, String content) {
+        Comment updateComment = commentRepository.getOne(idx);
+        updateComment.update(content);
+        commentRepository.save(updateComment);
+    }
 }

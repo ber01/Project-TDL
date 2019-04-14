@@ -92,6 +92,7 @@ $(document).ready(function () {
             c.slideUp();
         } else{
             c.slideDown();
+            $(this).parent().parent().parent().parent().find('.hiddenList').find('.todoDescriptionReply').trigger('focus');
         }
     });
 });

@@ -28,9 +28,8 @@ input{
 }
 
 .todoDescriptionReply {
-    width: 28%;
-    margin-right: 10px;
-    text-align: center;
+    width: 50%;
+    text-align: left;
 }
 
 #insert, .insertReply {
@@ -42,7 +41,7 @@ input{
     margin-bottom: 8%;
 }
 
-.container {
+.more_container{
     background-color: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -51,6 +50,9 @@ input{
     margin-left: auto;
     margin-right: auto;
     width: 55%;
+}
+
+.container {
     display: flex;
 }
 .column_left {
@@ -136,14 +138,17 @@ button{
     text-align: right;
 }
 
-ul {
-    margin-left: auto;
-    margin-right: auto;
+.hiddenList{
+    border-top: 1px dotted gray;
+    padding-top: 10px;
+    display: none;
+    text-align: left;
+}
 
+ul {
+    margin: 0;
     list-style: none;
     padding: 0;
-
-    max-width: 580px;
     width: 100%;
 }
 
@@ -159,7 +164,27 @@ li:last-child{
     border-bottom: 0;
 }
 
-.hiddenList{
-    display: none;
-    text-align: center;
+.reply_form{
+    margin-top: 10px;
+    text-align: right;
+}
+
+.list_in_li{
+    display: flex;
+}
+
+.li_in_left{
+    flex: 2;
+}
+
+.li_in_right{
+    margin-right: 10px;
+    font-size: 12px;
+    flex: 1;
+    color: gray;
+    text-align: right;
+}
+
+.li_span{
+    margin-right: 10px;
 }

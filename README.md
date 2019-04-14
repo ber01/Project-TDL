@@ -551,6 +551,21 @@ Spring Security를 사용하여 `username` 가져오기
 4. 저장소 생성(`CommentRepository`)
 5. Ajax 객체 생성(댓글 내용, 해당 todo의 idx) 및 전송 로직 생성(`comment.js`)
 6. DB 저장 [성공](./img/46.png)
+---
+### 25일차
+댓글 View 보이게 하기
+1. `Comment` 클래스는 `ToDoList` 클래스에 포함
+2. `{tdl.commentList}` 를 반복하여 댓글 View 출력
+
+댓글 수정, 삭제
+- `ToDoList` 수정, 삭제와 동일
+1. 수정
+    1. 수정 할 댓글의 `idx`와 내용을 `PutMapping`
+    2. `idx`를 이용하여 `Comment` 객체 생성 및 내용, 수정시간 업데이트
+2. 삭제
+    1. 수정 할 댓글의 `idx` `DeleteMapping`
+    2. 해당하는 `idx` 컬럼 삭제
+
 
 ## 주요기능
 ### 1. 로그인 화면

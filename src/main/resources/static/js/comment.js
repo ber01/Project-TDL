@@ -12,7 +12,7 @@ $('.insertReply').click(function () {
         contentType: "application/json",
         dataType: "json",
         success: function () {
-            location.href = "/tdl/list";
+            location.reload()
         },
         error: function () {
             alert("등록 실패!");

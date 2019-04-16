@@ -31,7 +31,7 @@ $('.delete').click(function () {
         contentType: 'application/json',
         dataType: 'json',
         success: function () {
-            location.href = '/tdl/list'
+            location.reload()
         },
         error: function () {
             alert("삭제 실패!")
@@ -45,9 +45,8 @@ $('.complete').click(function () {
         url: '/tdl/complete/' + data,
         type: 'PUT',
         contentType: 'application/json',
-        dataType: 'json',
         success: function () {
-            location.href = '/tdl/list'
+            location.reload()
         },
         error: function () {
             alert('변화 실패!')
@@ -71,7 +70,7 @@ $('.update').click(function () {
             contentType: 'application/json',
             dataType: 'text',
             success: function () {
-                location.href = "/tdl/list";
+                location.reload()
             },
             error: function () {
                 alert('수정 실패!')

@@ -1,6 +1,7 @@
 package com.kyunghwan.controller;
 
 import com.kyunghwan.domain.Comment;
+import com.kyunghwan.domain.CommentVo;
 import com.kyunghwan.domain.ToDoList;
 import com.kyunghwan.service.CommentService;
 import com.kyunghwan.service.ToDoListService;
@@ -22,8 +23,8 @@ public class CommentController {
 
     @PostMapping
     public ResponseEntity<?> postComment(@RequestBody Map<String, String> map) {
-        commentService.registerComment(map);
-        return new ResponseEntity<>("{}", HttpStatus.CREATED);
+        CommentVo commentVo = commentService.registerComment(map);
+        return new ResponseEntity<>(commentVo, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{idx}")

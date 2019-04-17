@@ -5,14 +5,19 @@ $('.insertReply').click(function () {
         tdlIdx : $(this).parent().parent().parent().find('.comment').val()
     });
 
+    var ul = $(this).parent().parent().parent().find('.list_ul');
+
     $.ajax({
         url: "/comment",
         type: "POST",
         data: jsonData,
         contentType: "application/json",
         dataType: "json",
-        success: function () {
-            location.reload()
+        success: function (a, b, c) {
+            var node = document.createElement('li');                 // Create a <li> node
+            var text_node = document.createTextNode(a['content']);         // Create a text node
+            node.appendChild(text_node);                              // Append the text to <li>
+            ul.append(node);
         },
         error: function () {
             alert("등록 실패!");

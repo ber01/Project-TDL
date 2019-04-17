@@ -46,16 +46,18 @@
             </div>
         </div>
         <div class="hiddenList">
-            <ul>
-                <li th:each="comment : ${tdl.commentList}" class="list_in_li">
-                    <div class="li_in_left" th:text="${comment.content}" contenteditable="false"></div>
-                    <div class="li_in_right">
-                        <span class="li_span comment_modify" th:data-test="${comment.idx}">수정</span>
-                        <span class="li_span comment_delete" th:data-test="${comment.idx}">삭제</span>
-                        <span th:text="${comment.modifiedDate} ? ${#temporals.format(comment.modifiedDate, 'yyyy-MM-dd HH:mm')} : ${#temporals.format(comment.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
-                    </div>
-                </li>
-            </ul>
+            <div class="reload" id="reload_id">
+                <ul class="list_ul">
+                    <li th:each="comment : ${tdl.commentList}" class="list_in_li">
+                        <div class="li_in_left" th:text="${comment.content}" contenteditable="false"></div>
+                        <div class="li_in_right">
+                            <span class="li_span comment_modify" th:data-test="${comment.idx}">수정</span>
+                            <span class="li_span comment_delete" th:data-test="${comment.idx}">삭제</span>
+                            <span th:text="${comment.modifiedDate} ? ${#temporals.format(comment.modifiedDate, 'yyyy-MM-dd HH:mm')} : ${#temporals.format(comment.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
             <form class="reply_form" onsubmit="return false">
                 <input class="todoDescriptionReply" type="text" maxlength="37">
                 <input class="insertReply" type="submit" value="ADD">

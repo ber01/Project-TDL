@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Entity @Table @Getter @Setter @ToString
 @NoArgsConstructor
@@ -28,6 +29,12 @@ public class Comment {
 
     @ManyToOne
     private ToDoList toDoList;
+
+    public void register(Map<String, String> map, ToDoList toDoList) {
+        this.setContent(map.get("content"));
+        this.setCreatedDate(LocalDateTime.now());
+        toDoList.add(this);
+    }
 
     public void update(String content) {
         this.content = content;

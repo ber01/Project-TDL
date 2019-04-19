@@ -56,11 +56,9 @@ $('.complete').click(function () {
 
 $('.update').click(function () {
 
-    $(this).parent().parent().parent().find('.tdlDescription').attr('contenteditable', true);
-    $(this).parent().parent().parent().find('.tdlDescription').trigger('focus');
-
-    $('.update').click(function () {
-
+    var is_update = $(this).parent().parent().parent().find('.tdlDescription').attr('contenteditable');
+    
+    if (is_update === "true") {
         var data = $(this).val();
         var des = $(this).parent().parent().parent().find('.tdlDescription').text();
         $.ajax({
@@ -76,9 +74,11 @@ $('.update').click(function () {
                 alert('수정 실패!')
             }
         });
-
         $(this).parent().parent().parent().find('.tdlDescription').attr('contenteditable', false);
-    });
+    } else {
+        $(this).parent().parent().parent().find('.tdlDescription').attr('contenteditable', true);
+        $(this).parent().parent().parent().find('.tdlDescription').trigger('focus');
+    }
 });
 
 $(document).ready(function () {

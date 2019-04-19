@@ -1,51 +1,63 @@
-function Content(args){
+function Content(args) {
 
     this.idx = args['idx'];
     this.content = args['content'];
     this.createdDate = args['createdDate'];
     this.modifiedDate = args['modifiedDate'];
 
-    this.createTag = function () {
+    var list_in_li = document.createElement('li');
+    list_in_li.className = 'list_in_li';
 
-        var list_in_li = document.createElement('li');
-        list_in_li.className = 'list_in_li';
+    var li_in_left = document.createElement('div');
+    li_in_left.className = 'li_in_left';
+    var li_in_right = document.createElement('div');
+    li_in_right.className = 'li_in_right';
 
-        var li_in_left = document.createElement('div');
-        li_in_left.className = 'li_in_left';
-        var li_in_right = document.createElement('div');
-        li_in_right.className = 'li_in_right';
+    li_in_left.appendChild(document.createTextNode(this.content));
+    list_in_li.appendChild(li_in_left);
+    list_in_li.appendChild(li_in_right);
 
-        li_in_left.appendChild(document.createTextNode(this.content));
+    var comment_modify = document.createElement('span');
+    comment_modify.className = 'li_span comment_modify';
+    comment_modify.setAttribute('data-test', this.idx);
 
-        list_in_li.appendChild(li_in_left);
-        list_in_li.appendChild(li_in_right);
+    var comment_delete = document.createElement('span');
+    comment_delete.className = 'li_span comment_delete';
+    comment_delete.setAttribute('data-test', this.idx);
+    comment_delete.onclick = function () {
+        var data = $(this).data('test');
+        $.ajax({
+            url: '/comment/' + data,
+            type: 'DELETE',
+            contentType: 'application/json',
+            success: function () {
+                list_in_li.remove();
+            },
+            error: function () {
+                alert("삭제 실패!")
+            }
+        })
+    };
 
-        var comment_modify = document.createElement('span');
-        comment_modify.className = 'li_span comment_modify';
-        comment_modify.setAttribute('data-test', this.idx);
-        var comment_delete = document.createElement('span');
-        comment_delete.className = 'li_span comment_delete';
-        comment_delete.setAttribute('data-test', this.idx);
-        var comment_time = document.createElement('span');
-        comment_time.className = 'comment_time';
+    var comment_time = document.createElement('span');
+    comment_time.className = 'comment_time';
 
-        comment_modify.appendChild(document.createTextNode('수정'));
-        comment_delete.appendChild(document.createTextNode('삭제'));
-        comment_time.appendChild(document.createTextNode(this.createdDate.toString().substring(0, 10) + ' ' + this.createdDate.toString().substring(11, 16)));
+    comment_modify.appendChild(document.createTextNode('수정'));
+    comment_delete.appendChild(document.createTextNode('삭제'));
+    comment_time.appendChild(document.createTextNode(this.createdDate.toString().substring(0, 10) + ' ' + this.createdDate.toString().substring(11, 16)));
 
-        li_in_right.appendChild(comment_modify);
-        li_in_right.appendChild(comment_delete);
-        li_in_right.appendChild(comment_time);
+    li_in_right.appendChild(comment_modify);
+    li_in_right.appendChild(comment_delete);
+    li_in_right.appendChild(comment_time);
 
-        return list_in_li;
-    }
+    return list_in_li;
 }
 
 $('.insertReply').click(function () {
 
     var jsonData = JSON.stringify({
-        content : $(this).parent().parent().parent().find('.todoDescriptionReply').val(),
-        tdlIdx : $(this).parent().parent().parent().find('.comment').val()
+        content: $(this).parent().parent().parent().find('.todoDescriptionReply').val(),
+        tdlIdx: $(this).parent().parent().parent().find('.comment').val()
     });
 
     var ul = $(this).parent().parent().parent().find('.list_ul');
@@ -59,13 +71,10 @@ $('.insertReply').click(function () {
         dataType: "json",
         success: function (args) {
 
-            var t = new Content(args);
-            ul.append(t.createTag());
+            ul.append(new Content(args));
 
             text.val('');
             text.focus();
-
-            ul.load(ul);
         },
         error: function () {
             alert("등록 실패!");
@@ -75,12 +84,14 @@ $('.insertReply').click(function () {
 
 $('.comment_delete').click(function () {
     var data = $(this).data('test');
+    var li = $(this).parent().parent();
+
     $.ajax({
         url: '/comment/' + data,
         type: 'DELETE',
         contentType: 'application/json',
         success: function () {
-            location.href = '/tdl/list'
+            li.remove();
         },
         error: function () {
             alert("삭제 실패!")
@@ -90,11 +101,9 @@ $('.comment_delete').click(function () {
 
 $('.comment_modify').click(function () {
 
-    $(this).parent().parent().find('.li_in_left').attr('contenteditable', true);
-    $(this).parent().parent().find('.li_in_left').trigger('focus');
+    var is_modify = $(this).parent().parent().find('.li_in_left').attr('contenteditable');
 
-    $('.comment_modify').click(function () {
-
+    if (is_modify === "true"){
         var data = $(this).data('test');
         var des = $(this).parent().parent().find('.li_in_left').text();
         $.ajax({
@@ -104,13 +113,15 @@ $('.comment_modify').click(function () {
             contentType: 'application/json',
             dataType: 'text',
             success: function () {
-                location.href = "/tdl/list";
+                location.reload();
             },
             error: function () {
                 alert('수정 실패!')
             }
         });
-
         $(this).parent().parent().find('.li_in_left').attr('contenteditable', false);
-    });
+    } else{
+        $(this).parent().parent().find('.li_in_left').attr('contenteditable', true);
+        $(this).parent().parent().find('.li_in_left').trigger('focus');
+    }
 });

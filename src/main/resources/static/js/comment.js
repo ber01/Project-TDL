@@ -24,20 +24,6 @@ function Content(args) {
     var comment_delete = document.createElement('span');
     comment_delete.className = 'li_span comment_delete';
     comment_delete.setAttribute('data-test', this.idx);
-    comment_delete.onclick = function () {
-        var data = $(this).data('test');
-        $.ajax({
-            url: '/comment/' + data,
-            type: 'DELETE',
-            contentType: 'application/json',
-            success: function () {
-                list_in_li.remove();
-            },
-            error: function () {
-                alert("삭제 실패!")
-            }
-        })
-    };
 
     var comment_time = document.createElement('span');
     comment_time.className = 'comment_time';
@@ -82,7 +68,7 @@ $('.insertReply').click(function () {
     });
 });
 
-$('.comment_delete').click(function () {
+$(document).on('click', '.comment_delete', function(){
     var data = $(this).data('test');
     var li = $(this).parent().parent();
 
@@ -99,8 +85,7 @@ $('.comment_delete').click(function () {
     })
 });
 
-$('.comment_modify').click(function () {
-
+$(document).on('click', '.comment_modify', function(){
     var is_modify = $(this).parent().parent().find('.li_in_left').attr('contenteditable');
 
     if (is_modify === "true"){

@@ -22,6 +22,8 @@
 |빌드 툴|Gradle 5.2.1|
 
 ## 학습과정
+<details markdown="1">
+
 ### 1일차
 - [프로젝트 생성 오류](./img/1.jpeg) / 해결 : IntelliJ 2018.3 다운로드
 - TDL 클래스 설계
@@ -565,9 +567,16 @@ Spring Security를 사용하여 `username` 가져오기
 2. 삭제
     1. 수정 할 댓글의 `idx` `DeleteMapping`
     2. 해당하는 `idx` 컬럼 삭제
-
+---
+### 26일차
+1. `ToDoList` 수정 시 완료, 삭제, 댓글 버튼 비활성화
+2. 댓글 수정, 삭제 시 페이지 리로드 X
+3. 댓글 삭제 시 삭제 버튼 비활성화
+</details>
 
 ## 주요기능
+<details markdown="1">
+
 ### 1. 로그인 화면
 ![로그인](./img/21.png)
 #### 1.1. 로그인 검사
@@ -607,3 +616,5 @@ Spring Security를 사용하여 `username` 가져오기
 ### 8. 댓글 달기
 ![댓글1](./img/47.png)
 ![댓글2](./img/48.png)
+
+</details>

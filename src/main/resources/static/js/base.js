@@ -57,7 +57,13 @@ $('.complete').click(function () {
 $('.update').click(function () {
 
     var is_update = $(this).parent().parent().parent().find('.tdlDescription').attr('contenteditable');
-    
+
+    $(this).parent().parent().parent().find('.complete').css('display', 'none');
+    $(this).parent().parent().parent().find('.delete').css('display', 'none');
+    $(this).parent().parent().parent().find('.comment').css('display', 'none');
+
+    $(this).find('i').html('subdirectory_arrow_left');
+
     if (is_update === "true") {
         var data = $(this).val();
         var des = $(this).parent().parent().parent().find('.tdlDescription').text();

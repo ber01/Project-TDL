@@ -91,6 +91,10 @@ $(document).on('click', '.comment_modify', function(){
     if (is_modify === "true"){
         var data = $(this).data('test');
         var des = $(this).parent().parent().find('.li_in_left').text();
+
+        $(this).html('수정');
+        $(this).next().css('display', '');
+
         $.ajax({
             url: '/comment/' + data,
             type: 'PUT',
@@ -98,7 +102,7 @@ $(document).on('click', '.comment_modify', function(){
             contentType: 'application/json',
             dataType: 'text',
             success: function () {
-                location.reload();
+
             },
             error: function () {
                 alert('수정 실패!')
@@ -106,6 +110,8 @@ $(document).on('click', '.comment_modify', function(){
         });
         $(this).parent().parent().find('.li_in_left').attr('contenteditable', false);
     } else{
+        $(this).html('완료');
+        $(this).next().css('display', 'none');
         $(this).parent().parent().find('.li_in_left').attr('contenteditable', true);
         $(this).parent().parent().find('.li_in_left').trigger('focus');
     }

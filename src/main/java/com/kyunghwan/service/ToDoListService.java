@@ -1,5 +1,6 @@
 package com.kyunghwan.service;
 
+import com.kyunghwan.domain.Comment;
 import com.kyunghwan.domain.ToDoList;
 import com.kyunghwan.domain.User;
 import com.kyunghwan.repository.ToDoListRepository;
@@ -7,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -39,7 +42,12 @@ public class ToDoListService {
     }
 
     public List<ToDoList> findCurrentUserTdl(User currentUser) {
-        return toDoListRepository.findByUserOrderByIdx(currentUser);
+        List<ToDoList> list = toDoListRepository.findByUserOrderByIdx(currentUser);
+        for (ToDoList tdl : list) {
+            Collections.sort(tdl.getCommentList());
+            tdl.setCommentList(tdl.getCommentList());
+        }
+        return list;
     }
 
     public ToDoList getTdl(Integer idx) {

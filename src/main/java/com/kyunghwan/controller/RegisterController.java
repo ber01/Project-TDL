@@ -29,22 +29,18 @@ public class RegisterController {
     }
 
     @PostMapping
-    public ResponseEntity<?> postRegister(@Valid @RequestBody UserDto userDto, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
-            System.out.println(bindingResult.getAllErrors());
-            return new ResponseEntity<>("{}", HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<?> postRegister(@Valid @RequestBody UserDto userDto){
         userService.pwdEncodingAndRegister(userDto);
         return new ResponseEntity<>("{}", HttpStatus.CREATED);
     }
 
     @PostMapping("/duplication/id")
     public ResponseEntity<?> idDuplication(@RequestBody String id){
-        return registerService.idDuplicationCheck(id) ? new ResponseEntity<>("{}", HttpStatus.OK) : new ResponseEntity<>("{}", HttpStatus.BAD_REQUEST);
+        return registerService.idDuplicationCheck(id) ? new ResponseEntity<>("사용가능한 아이디 입니다.", HttpStatus.OK) : new ResponseEntity<>("이미 사용중인 아이디 입니다.", HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("/duplication/email")
     public ResponseEntity<?> emailDuplication(@RequestBody String email){
-        return registerService.emailDuplicationCheck(email) ? new ResponseEntity<>("{}", HttpStatus.OK) : new ResponseEntity<>("{}", HttpStatus.BAD_REQUEST);
+        return registerService.emailDuplicationCheck(email) ? new ResponseEntity<>("사용가능한 이메일 입니다.", HttpStatus.OK) : new ResponseEntity<>("이미 사용중인 이메일 입니다.", HttpStatus.BAD_REQUEST);
     }
 }

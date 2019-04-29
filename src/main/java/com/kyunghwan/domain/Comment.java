@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Entity @Table @Getter @Setter @ToString
 @NoArgsConstructor
-public class Comment {
+public class Comment implements Comparable<Comment> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,5 +40,10 @@ public class Comment {
         this.content = content;
         this.createdDate = this.getCreatedDate();
         this.modifiedDate = LocalDateTime.now();
+    }
+
+    @Override
+    public int compareTo(Comment o) {
+        return this.getIdx() < o.getIdx() ? -1 : 1;
     }
 }

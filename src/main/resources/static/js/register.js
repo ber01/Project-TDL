@@ -4,7 +4,7 @@ var email_duplication = false;
 $('#login_id').blur(function () {
 
     var id = $('#login_id').val();
-    var regExp = /[a-z0-9]{5,10}/g;
+    var regExp = /^[a-z0-9]{5,10}$/g;
 
     if (id.length === 0){
         $('#id_error').text('필수 정보입니다.').css('color', 'red');
@@ -17,12 +17,12 @@ $('#login_id').blur(function () {
             data: $('#login_id').val(),
             contentType: "application/json",
             dataType: "text",
-            success: function () {
-                $('#id_error').text('사용가능한 아이디 입니다.').css('color', 'green');
+            success: function (args) {
+                $('#id_error').text(args).css('color', 'green');
                 id_duplication = true;
             },
-            error: function () {
-                $('#id_error').text('이미 사용중인 아이디 입니다.').css('color', 'red');
+            error: function (args) {
+                $('#id_error').text(args.responseText).css('color', 'red');
                 id_duplication = false;
             }
         });
@@ -45,12 +45,12 @@ $('#login_email').blur(function () {
             data: $('#login_email').val(),
             contentType: "application/json",
             dataType: "text",
-            success: function () {
-                $('#email_error').text('사용가능한 이메일 입니다.').css('color', 'green');
+            success: function (args) {
+                $('#email_error').text(args).css('color', 'green');
                 email_duplication = true;
             },
-            error: function () {
-                $('#email_error').text('이미 사용중인 이메일 입니다.').css('color', 'red');
+            error: function (args) {
+                $('#email_error').text(args.responseText).css('color', 'red');
                 email_duplication = false;
             }
         });

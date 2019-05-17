@@ -22,7 +22,7 @@
 |빌드 툴|Gradle 5.2.1|
 
 ## 학습과정
-<details markdown="1">
+<!-- <details markdown="1"> -->
 
 ### 1일차
 - [프로젝트 생성 오류](./img/1.jpeg) / 해결 : IntelliJ 2018.3 다운로드
@@ -572,6 +572,24 @@ Spring Security를 사용하여 `username` 가져오기
 1. `ToDoList` 수정 시 완료, 삭제, 댓글 버튼 비활성화
 2. 댓글 수정, 삭제 시 페이지 리로드 X
 3. 댓글 삭제 시 삭제 버튼 비활성화
+---
+### 27일차
+회원가입 테스트 코드 작성하기
+1. `@WebMvcTest`
+    1. MVC 관련 설정만 로드하여 컨트롤러를 가볍게 테스트 가능
+    2. `@Controller` 는 로드하지만 `@Service`, `@Repository` 는 로드하지 않음
+    3. 따라서 의존 객체는 `@MockBean` 어노테이션을 사용하여 생성
+2. `@SpringBootTest`
+    1. 통합 테스트를 제공하는 어노테이션
+    2. `@AutoConfigureMockMvc` 어노테이션과 함께 사용하면 MVC 테스트 가능
+3. `ObjectMapper`
+    1. `post()` `content()` 의 파라미터를 입력할 때 사용
+    1. `POJO` 객체 `Json` 형태로 변환
+    2. {\"id\":\"user1\",\"email\":\"user1@ks.ac.kr\",\"pwd\":\"user1A!\"} 형태의 문자열로 파싱
+2. `GET` 요청, HTTP 상태값 `200` 반환
+3. `ID`, `E-mail`, `PWD` 유효성 검사
+4. `ID`, `E-mail` 중복 검사
+
 </details>
 
 ## 주요기능

@@ -589,6 +589,10 @@ Spring Security를 사용하여 `username` 가져오기
 2. `GET` 요청, HTTP 상태값 `200` 반환
 3. `ID`, `E-mail`, `PWD` 유효성 검사
 4. `ID`, `E-mail` 중복 검사
+---
+### 28일차
+로그인 테스트 코드 작성하기
+
 
 </details>
 

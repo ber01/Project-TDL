@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .usernameParameter("id")
                 .loginPage("/login")
-                .successForwardUrl("/login").permitAll()
+                .permitAll()
             .and()
                 .logout()
                 .logoutSuccessUrl("/login").permitAll();

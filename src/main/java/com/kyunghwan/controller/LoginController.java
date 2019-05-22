@@ -6,16 +6,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 
-    @GetMapping
+    @GetMapping("/login")
     public String login() {
         return "/login";
     }
 
-    @PostMapping
-    public String loginSuccess() {
-        return "redirect:tdl/list";
+    @GetMapping("/")
+    public String loginSuccess(){
+        return "redirect:/tdl/list";
     }
 }

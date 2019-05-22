@@ -22,7 +22,7 @@
 |빌드 툴|Gradle 5.2.1|
 
 ## 학습과정
-<!-- <details markdown="1"> -->
+<details markdown="1">
 
 ### 1일차
 - [프로젝트 생성 오류](./img/1.jpeg) / 해결 : IntelliJ 2018.3 다운로드
@@ -592,6 +592,24 @@ Spring Security를 사용하여 `username` 가져오기
 ---
 ### 28일차
 로그인 테스트 코드 작성하기
+1. 로그인 실패
+    1. 아이디 불일치
+        - `/login?error` 리다이렉트
+    2. 비밀번호 불일치
+        - `/login?error` 리다이렉트
+    3. `/tdl/list` 접근
+        - `/login` 리다이렉트
+2. 로그인 성공
+    1. 아이디, 비밀번호 일치
+        - `/` 리다이렉트
+    2. `/` 요청
+        - `/tdl/list` 리다이렉트
+    3. `/tdl/list` 요청
+        - `/tdl/list` 리다이렉트
+3. 세션 존재
+4. 쿠키 갱신(?)
+---
+
 
 
 </details>

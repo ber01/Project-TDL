@@ -1,8 +1,10 @@
 package com.kyunghwan.domain;
 
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,8 @@ public class ToDoList {
     private Integer idx;
 
     @Column
+    @NotBlank
+    @Length(max = 35)
     private String description;
 
     @Column

@@ -17,8 +17,8 @@ $('#insert').click(function () {
         success: function () {
             location.href = '/tdl/list';
         },
-        error: function () {
-            alert("저장 실패!")
+        error: function (args) {
+            alert(args.responseText)
         }
     });
 });

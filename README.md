@@ -616,20 +616,36 @@ ToDo 등록 테스트 코드 작성하기
     2. 유저 생성 및 `post(/register)` 요청
     3. `UserDetails` 필드 생성 유저로 초기화
     4. `currentUser` 초기화를 위한 `get("/tdl/list")` 요청
-2. `get` 요청 테스트
+2. `get` 요청
     1. `/` 요청
     2. `/tdl/list` 요청
-3. `ToDo` 등록 실패 테스트(`description`)
+3. 등록 실패
     1. 문자열 길이 0
     2. 문자열 길이 35 이상
-4. `ToDo` 등록 성공 테스트
-    1. 정상 등록 테스트
+4. 등록 성공
+    1. 정상 등록
     2. 저장 된 `ToDo` 비교
         1. `ToDoList` 객체 - `Not Null`
         2. `Description` - `일치`
         3. `CreateDate` - `Not null`
         4. `CompletedDate` - `null`
         5. `UserIdx` - `일치`
+5. 완료
+    1. `ToDo` 등록
+    2. 상태(`False`), 완료 날짜(`null`) 확인
+    3. `put("/tdl/complete/1")` 요청
+    4. 상태(`True`), 완료 날짜(`LocalDateTime.now()`)
+6. 삭제
+    1. `ToDo` 등록
+    2. 등록 `ToDo` 객체 확인(`not null`)
+    3. `delte('/tdl/1')` 요청
+    4. 삭제 확인(`null`)
+7. 수정
+    1. `ToDo` 등록
+    2. 초기 등록 내용 확인
+    3. `put("/tdl/1")` 요청
+        - 수정 `description` 삽입
+    4. 수정 된 `description` 확인
 
 </details>
 

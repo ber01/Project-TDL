@@ -201,16 +201,55 @@ public class ToDoListTest {
                     .andExpect(status().isCreated());
         }
 
-        // 삭제 전 ToDo 객체 확인
-        IntStream.rangeClosed(1, 5).forEach(System.out::println);
-        assertThat(toDoListRepository.findByIdx(1)).isNotNull();
-        assertThat(toDoListRepository.findByIdx(2)).isNotNull();
-        assertThat(toDoListRepository.findByIdx(3)).isNotNull();
+        // 삭제 전 확인
+        IntStream.rangeClosed(1, 3).forEach(index -> assertThat(toDoListRepository.findByIdx(index)).isNotNull());
 
-        /*
         // 삭제
         mockMvc
-                .perform(delete())
-                */
+                .perform(delete("/tdl/3")
+                            .with(user(userDetails))
+                            .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
+        // 삭제
+        mockMvc
+                .perform(delete("/tdl/1")
+                        .with(user(userDetails))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
+        // 삭제 후 확인
+        assertThat(toDoListRepository.findByIdx(1)).isNull();
+        assertThat(toDoListRepository.findByIdx(2)).isNotNull();
+        assertThat(toDoListRepository.findByIdx(3)).isNull();
+    }
+
+    @Test
+    public void To_Do_수정_테스트() throws Exception {
+        ToDoList toDoList = new ToDoList();
+        toDoList.setDescription("Description 테스트");
+
+        mockMvc
+                .perform(post("/tdl")
+                        .with(user(userDetails))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(toDoList)))
+                .andExpect(status().isCreated());
+
+        // 수정 전 description 확인
+        assertThat(toDoListRepository.findByIdx(1).getDescription()).isEqualTo("Description 테스트");
+
+        String des = "Description 테스트 (수정)";
+
+        // 수정
+        mockMvc
+                .perform(put("/tdl/1")
+                        .with(user(userDetails))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(des))
+                .andExpect(status().isOk());
+
+        // 수정 후 description 확인
+        assertThat(toDoListRepository.findByIdx(1).getDescription()).isEqualTo(des);
     }
 }

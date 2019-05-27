@@ -22,7 +22,7 @@
 |빌드 툴|Gradle 5.2.1|
 
 ## 학습과정
-<!-- <details markdown="1"> -->
+<details markdown="1">
 
 ### 1일차
 - [프로젝트 생성 오류](./img/1.jpeg) / 해결 : IntelliJ 2018.3 다운로드
@@ -646,6 +646,24 @@ ToDo 등록 테스트 코드 작성하기
     3. `put("/tdl/1")` 요청
         - 수정 `description` 삽입
     4. 수정 된 `description` 확인
+
+---
+### 30일차
+댓글 테스트 코드 작성하기
+1. 유저 생성 및 `ToDo` 등록
+2. 등록 테스트(`POST`)
+    1. 1번 ToDo에 `Comment` 3개 등록
+    2. 2번 ToDo에 `Comment` 1개 등록
+    3. 3번 ToDo에 `Comment` 2개 등록
+    4. ToDo와의 관계성 확인
+        - `ToDoListIdx` 에 대한 `List` 의 개수
+3. 수정 테스트(`PUT`)
+    1. 수정 요청 성공 확인
+    2. 수정 시간(`modified_date`) 확인
+4. 삭제 테스트(`DELETE`)
+    1. 삭제 요청 성공 확인
+    2. DB 확인
+        - 삭제 한 `idx` 에 대한 `Comment` 객체 `null` 확인
 
 </details>
 

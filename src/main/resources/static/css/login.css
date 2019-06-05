@@ -12,6 +12,10 @@ body{
     font-size: 80px;
 }
 
+.material-icons.md-40{
+    font-size: 40px;
+}
+
 .login_comment{
     margin-top: 10px;
     font-size: 30px;
@@ -97,4 +101,7 @@ a{
     margin-top: 9px;
     margin-bottom: 0;
     font-size: 11px;
+}
+
+#found{
 }

@@ -29,10 +29,10 @@ public class FoundController {
     }
 
     @PostMapping("/send/email")
-    public ResponseEntity<?> test(@RequestBody String email){
+    public ResponseEntity<?> test(@RequestBody String email) throws Exception{
         User user = foundService.findUserByEmail(email);
-        System.out.println(user);
         if (user == null) return new ResponseEntity<>("존재하지 않는 이메일입니다.", HttpStatus.BAD_REQUEST);
+        foundService.sendMail(user);
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 }

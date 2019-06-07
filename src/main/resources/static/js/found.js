@@ -13,7 +13,7 @@ $('#found_id_btn').click(function () {
             location.href = "/login";
         },
         error: function (args) {
-            $('#found_id_email').val(' ');
+            $('#found_id_email').val('');
             $('#found_not_email').text(args.responseText).css('color', 'red');
         }
     });

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/login.css?ver=2">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <title>Forgot Your ID</title>
+</head>
+<body>
+<div class="container_id">
+    <div class="logo"><a href="/login"><i class="material-icons md-80">refresh</i></a></div>
+    <p class="login_comment">Forgot Your ID?</p>
+    <div class="login_body">
+        <form onsubmit="return false">
+            <div class="login_field">
+                <p>Enter your email address and we will send your ID.</p>
+                <label for="found_id_email">E-mail</label>
+                <input type="text" id="found_id_email">
+                <p id="found_not_email"></p>
+            </div>
+            <div class="login_field">
+                <input id=found_id_btn type="submit" value="Send E-mail">
+            </div>
+        </form>
+    </div>
+</div>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/found.js}"></script>
+</body>
+</html>

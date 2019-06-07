@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/login.css?ver=2">
+    <link rel="stylesheet" href="/css/login.css?ver=3">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <title>Sign in to TDL</title>
@@ -28,8 +28,8 @@
             </form>
         </div>
         <div class="register_body">
-            <p id="register_comment"> New to TDL? <a href="/register">Create an account.</a></p>
-            <p id="found"> Found Your <a href="/found/id">ID</a> · <a href="/found/pwd">Password</a></p>
+            <p id="register_comment"> New to TDL? <a href="/register"><span class="blue_tag">Create an account.</span></a></p>
+            <p id="found"> Forgot Your <a href="/found/id"><span class="blue_tag">ID</span></a> · <a href="/found/pwd"><span class="blue_tag">Password</span></a> ? </p>
         </div>
     </div>
     <script th:src="@{/js/jquery.min.js}"></script>

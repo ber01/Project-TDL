@@ -26,6 +26,12 @@ public class UserService implements UserDetailsService {
         userRepository.save(userDto.toEntity(passwordEncoder.encode(userDto.getPwd())));
     }
 
+    public void updatePwd(String id, String pwd) {
+        User updateUser = userRepository.findById(id);
+        updateUser.setPwd(passwordEncoder.encode(pwd));
+        userRepository.save(updateUser);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 

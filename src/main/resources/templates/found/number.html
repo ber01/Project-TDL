@@ -2,27 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/login.css?ver=2">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-    <title>Forgot Your Password</title>
+    <title>Enter Your Certification Number</title>
 </head>
 <body>
-<div class="container_pwd">
+<div class="container_id">
     <div class="logo"><a href="/login"><i class="material-icons md-80">refresh</i></a></div>
-    <p class="login_comment">Forgot Your Password?</p>
+    <p class="login_comment">Enter Number</p>
     <div class="login_body">
         <form onsubmit="return false">
             <div class="login_field">
-                <p>Enter your ID and E-mail address and we will reset your Password</p>
-                <label for="found_pwd_id">ID</label>
-                <input type="text" id="found_pwd_id">
-                <label for="found_pwd_email">E-mail</label>
-                <input type="text" id="found_pwd_email">
-                <p id="found_not_pwd"></p>
+                <p>Enter your Certification Number.</p>
+                <label for="found_cn">Number</label>
+                <input type="password" id="found_cn">
+                <p id="found_not_cn"></p>
             </div>
             <div class="login_field">
-                <input id=found_pwd_btn type="submit" value="Send ID & E-mail">
+                <input id=found_cn_btn type="submit" value="Send Number">
             </div>
         </form>
     </div>

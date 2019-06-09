@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/login.css?ver=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-    <title>Forgot Your Password</title>
+    <title>Reset Password</title>
 </head>
 <body>
-<div class="container_pwd">
+<div class="container_id">
     <div class="logo"><a href="/login"><i class="material-icons md-80">refresh</i></a></div>
-    <p class="login_comment">Forgot Your Password?</p>
+    <p class="login_comment">Reset Your Password</p>
     <div class="login_body">
         <form onsubmit="return false">
             <div class="login_field">
-                <p>Enter your ID and E-mail address and we will reset your Password</p>
-                <label for="found_pwd_id">ID</label>
-                <input type="text" id="found_pwd_id">
-                <label for="found_pwd_email">E-mail</label>
-                <input type="text" id="found_pwd_email">
+                <p>Enter your Reset Password</p>
+                <label for="found_reset_pwd">Password</label>
+                <input type="password" id="found_reset_pwd">
                 <p id="found_not_pwd"></p>
             </div>
             <div class="login_field">
-                <input id=found_pwd_btn type="submit" value="Send ID & E-mail">
+                <input id=found_reset_btn type="submit" value="Send Password">
             </div>
         </form>
     </div>

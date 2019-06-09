@@ -11,6 +11,10 @@ a:visited {
     margin-top: 10%;
 }
 
+.container_pwd{
+    margin-top: 7%;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -53,7 +57,7 @@ label{
     text-align: left;
 }
 
-#login_id, #login_pwd, #login_email, #found_id_email {
+#login_id, #login_pwd, #login_email, #found_id_email, #found_pwd_id, #found_pwd_email, #found_cn, #found_reset_pwd {
     padding: 6px;
     width: 248px;
     height: 20px;
@@ -61,7 +65,7 @@ label{
     font-size: 14px;
 }
 
-#login_btn, #found_id_btn{
+#login_btn, #found_id_btn, #found_pwd_btn, #found_cn_btn, #found_reset_btn {
     margin-top: 4%;
     padding: 6px;
     width: 260px;
@@ -116,6 +120,10 @@ a{
     color: #0366d6;
 }
 
-#found_not_email{
-    font-size: 13px;
+#found_not_email, #found_not_cn, #found_not_pwd {
+    color: red;
+    text-align: left;
+    margin-top: 9px;
+    margin-bottom: 0;
+    font-size: 11px;
 }

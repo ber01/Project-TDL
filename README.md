@@ -666,7 +666,7 @@ ToDo 등록 테스트 코드 작성하기
         - 삭제 한 `idx` 에 대한 `Comment` 객체 `null` 확인
 ---
 ### ~
-이 후 학습 과정은 Issue에 설명하고 있습니다.
+이 후 학습 과정은 [Issue](https://github.com/ber01/Project-TDL/issues)에 설명하고 있습니다.
 
 </details>
 

@@ -20,47 +20,54 @@ public class FoundController {
 
     private final FoundService foundService;
 
+    // ID 찾기 화면
     @GetMapping("/id")
-    public String id(){
+    public String getId(){
         return "/found/id";
     }
 
+    // Password 찾기 화면
     @GetMapping("/pwd")
-    public String pwd(){
+    public String getPwd(){
         return "/found/pwd";
     }
 
+    // ID 찾기 -> 이메일 전송
     @PostMapping("/send/email")
-    public ResponseEntity<?> sendEmail(@RequestBody String email) throws Exception{
+    public ResponseEntity<?> postSendEmail(@RequestBody String email){
         User user = foundService.findUserByEmail(email);
         if (user == null) return new ResponseEntity<>("존재하지 않는 이메일입니다.", HttpStatus.BAD_REQUEST);
-        foundService.sendMail(user);
+        foundService.sendEmail(user);
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 
-    @PostMapping("/send/id")
-    public ResponseEntity<?> sendIdAndEmail(@RequestBody Map<String, String> map) throws Exception {
-        return foundService.forgotPwd(map)? new ResponseEntity<>("{}", HttpStatus.OK) : new ResponseEntity<>("아이디 또는 이메일을 다시 확인하세요.", HttpStatus.BAD_REQUEST);
+    // Password 찾기 -> 아이디, 이메일 전송
+    @PostMapping("/send/id-email")
+    public ResponseEntity<?> postSendIdAndEmail(@RequestBody Map<String, String> map) throws Exception {
+        return foundService.checkIdAndEmail(map)? new ResponseEntity<>("{}", HttpStatus.OK) : new ResponseEntity<>("아이디 또는 이메일을 다시 확인하세요.", HttpStatus.BAD_REQUEST);
     }
 
+    // 인증번호 화면
     @GetMapping("/number")
-    public String certificationNumber(){
+    public String getNumber(){
         return "/found/number";
     }
 
+    // 인증번호 전송
     @PostMapping("/send/number")
-    public ResponseEntity<?> checkNumber(@RequestBody String number){
-        System.out.println(number);
+    public ResponseEntity<?> postSendNumber(@RequestBody String number){
         return foundService.checkNumber(number) ? new ResponseEntity<>("{}", HttpStatus.OK) : new ResponseEntity<>("올바르지 않은 인증번호 입니다.", HttpStatus.BAD_REQUEST);
     }
 
+    // Password 초기화 화면
     @GetMapping("/reset")
     public String getReset(){
         return "/found/reset";
     }
 
+    // 초기화 된 Password 전송
     @PostMapping("/send/reset")
-    public ResponseEntity<?> resetPassword(@RequestBody String pwd){
+    public ResponseEntity<?> postSendReset(@RequestBody String pwd){
         foundService.resetPassword(pwd);
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }

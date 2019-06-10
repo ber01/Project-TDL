@@ -3,6 +3,8 @@ package com.kyunghwan.service;
 import com.kyunghwan.domain.User;
 import com.kyunghwan.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import java.util.Map;
 import java.util.Random;
 
 @Service
+@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 @RequiredArgsConstructor
 public class FoundService{
 
@@ -18,57 +21,60 @@ public class FoundService{
     private final JavaMailSender mailSender;
     private final UserService userService;
 
-    private StringBuilder number;
     private String id;
-    private String email;
+    private String certificationNumber;
 
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
-    public void sendMail(User user) {
+    public void sendEmail(User user) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(user.getEmail());
-        message.setSubject("회신이 불가능한 메일입니다.");
-        message.setText(user.getId());
+        message.setSubject("ToDoList 로그인 아이디입니다.");
+        message.setText("이 메일주소는 발신전용 주소입니다. 회신이 불가능합니다.\n" + "회원님의 아이디는 [" + user.getId() + "] 입니다.");
         mailSender.send(message);
     }
 
-    public boolean forgotPwd(Map<String, String> map) throws Exception {
-        System.out.println(number);
-        User user = userRepository.findById(map.get("id"));
+    public boolean checkIdAndEmail(Map<String, String> map) throws Exception {
+        String id = map.get("id");
+        String email = map.get("email");
+        User user = userRepository.findById(id);
         if (user == null){
             return false;
-        } else if (!user.getEmail().equals(map.get("email"))){
+        } else if (!user.getEmail().equals(email)){
             return false;
         } else {
-            this.id = map.get("id");
-            this.email = map.get("email");
-            return sendCertificationNumber();
+            return sendCertificationNumber(id, email);
         }
     }
 
-    private boolean sendCertificationNumber() throws Exception {
-        String[] arr = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-        Random random = new Random();
-        this.number = new StringBuilder();
-        for (int i = 0; i < 10; i++){
-            String s = String.valueOf(arr[random.nextInt(62)]);
-            number.append(s);
-        }
-        System.out.println(number);
+    private boolean sendCertificationNumber(String id, String email){
+        this.id = id;
+        this.certificationNumber = createCertificationNumber();
 
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(this.email);
-        message.setSubject("회신이 불가능한 메일입니다.");
-        message.setText(String.valueOf(number));
+        message.setTo(email);
+        message.setSubject("ToDoList 인증번호입니다.");
+        message.setText("이 메일주소는 발신전용 주소입니다. 회신이 불가능합니다.\n" + "인증번호는 [" + certificationNumber + "] 입니다.");
         mailSender.send(message);
 
         return true;
     }
 
-    public boolean checkNumber(String num) {
-        return String.valueOf(this.number).equals(num);
+    private String createCertificationNumber(){
+        String[] arr = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        Random random = new Random();
+        StringBuilder certificationNumber = new StringBuilder();
+        for (int i = 0; i < 10; i++){
+            String s = String.valueOf(arr[random.nextInt(arr.length - 1)]);
+            certificationNumber.append(s);
+        }
+        return String.valueOf(certificationNumber);
+    }
+
+    public boolean checkNumber(String certificationNumber) {
+        return this.certificationNumber.equals(certificationNumber);
     }
 
     public void resetPassword(String pwd){

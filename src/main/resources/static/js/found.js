@@ -14,7 +14,7 @@ $('#found_id_btn').click(function () {
             contentType: "application/json",
             dataType: "text",
             success: function () {
-                alert("이메일로 아이디를 발송하였습니다.");
+                alert("아이디 전송 성공!");
                 location.href = "/login";
             },
             error: function (args) {
@@ -36,13 +36,13 @@ $('#found_pwd_btn').click(function () {
     });
 
     $.ajax({
-        url: "/found/send/id",
+        url: "/found/send/id-email",
         type: "POST",
         data: jsonData,
         contentType: "application/json",
         dataType: "json",
         success: function () {
-            alert("이메일로 인증번호를 전송하였습니다.");
+            alert("인증번호 전송 성공!");
             location.href = "/found/number"
         },
         error: function (args) {
@@ -84,21 +84,19 @@ $('#found_reset_pwd').blur(function(){
 
     if (pwd.length === 0) {
         $('#found_not_pwd').text('필수 정보입니다.').css('color', 'red');
-        reset_pwd = false;
     } else if (!regExp.test(pwd) || pwd.length < 8 || pwd.length > 16) {
         $('#found_not_pwd').text('8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.').css('color', 'red');
-        reset_pwd = false;
     } else {
         $('#found_not_pwd').text('사용가능한 비밀번호 입니다.').css('color', 'green');
-        reset_pwd = true;
     }
 });
 
 $('#found_reset_btn').click(function () {
 
     var pwd = $('#found_reset_pwd').val();
+    var regExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
 
-    if (reset_pwd){
+    if (regExp.test(pwd)){
         $.ajax({
             url: "/found/send/reset",
             type: "POST",

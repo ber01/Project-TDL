@@ -25,6 +25,8 @@ public class MailConfig {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.debug", "true");
 
+        // 이그노어 테스트 주석
+
         return mailSender;
     }
 }

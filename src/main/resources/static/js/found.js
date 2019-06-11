@@ -1,5 +1,3 @@
-var reset_pwd = false;
-
 $('#found_id_btn').click(function () {
 
     var email = $('#found_id_email').val();
@@ -96,18 +94,23 @@ $('#found_reset_btn').click(function () {
     var pwd = $('#found_reset_pwd').val();
     var regExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
 
+    var jsonData = JSON.stringify({
+        pwd: pwd
+    });
+
     if (regExp.test(pwd)){
         $.ajax({
             url: "/found/send/reset",
             type: "POST",
-            data: pwd,
+            data: jsonData,
             contentType: "application/json",
-            dataType: "text",
+            dataType: "json",
             success: function () {
                 alert("비밀번호가 변경되었습니다.");
                 location.href = "/login";
             },
-            error: function () {
+            error: function (args) {
+                $('#found_not_pwd').text(args.responseText).css('color', 'red');
             }
         })
     } else {

@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -20,6 +21,7 @@ public class FoundService{
     private final UserRepository userRepository;
     private final JavaMailSender mailSender;
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
     private String id;
     private String certificationNumber;
@@ -77,7 +79,12 @@ public class FoundService{
         return this.certificationNumber.equals(certificationNumber);
     }
 
-    public void resetPassword(String pwd){
-        userService.updatePwd(this.id, pwd);
+    public boolean resetPassword(String pwd){
+        String currentPwd = userRepository.findById(this.id).getPwd();
+        if(!passwordEncoder.matches(pwd, currentPwd)){
+            userService.updatePwd(this.id, pwd);
+            return true;
+        }
+        return false;
     }
 }

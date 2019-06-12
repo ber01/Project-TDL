@@ -80,11 +80,20 @@ public class FoundService{
     }
 
     public boolean resetPassword(String pwd){
+        System.out.println(this.id);
         String currentPwd = userRepository.findById(this.id).getPwd();
         if(!passwordEncoder.matches(pwd, currentPwd)){
             userService.updatePwd(this.id, pwd);
             return true;
         }
         return false;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public FoundService currentService(){
+        return this;
     }
 }

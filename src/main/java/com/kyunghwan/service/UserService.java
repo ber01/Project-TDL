@@ -1,7 +1,10 @@
 package com.kyunghwan.service;
 
+import com.kyunghwan.domain.PasswordResetToken;
+import com.kyunghwan.domain.ResetDto;
 import com.kyunghwan.domain.User;
 import com.kyunghwan.domain.UserDto;
+import com.kyunghwan.repository.PasswordResetTokenRepository;
 import com.kyunghwan.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,15 +24,23 @@ public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final PasswordResetTokenRepository passwordResetTokenRepository;
 
     public void pwdEncodingAndRegister(UserDto userDto) {
         userRepository.save(userDto.toEntity(passwordEncoder.encode(userDto.getPwd())));
     }
 
-    public void updatePwd(String id, String pwd) {
-        User updateUser = userRepository.findById(id);
-        updateUser.setPwd(passwordEncoder.encode(pwd));
+    public void updatePwd(ResetDto resetDto) {
+
+        String token = resetDto.getToken();
+
+        PasswordResetToken passwordResetToken = passwordResetTokenRepository.findByToken(token);
+        User updateUser = passwordResetToken.getUser();
+
+        updateUser.setPwd(passwordEncoder.encode(resetDto.getPwd()));
         userRepository.save(updateUser);
+
+        passwordResetTokenRepository.delete(passwordResetToken);
     }
 
     @Override

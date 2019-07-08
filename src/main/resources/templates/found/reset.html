@@ -12,15 +12,20 @@
     <div class="logo"><a href="/login"><i class="material-icons md-80">refresh</i></a></div>
     <p class="login_comment">Reset Your Password</p>
     <div class="login_body">
+        <div th:if="${error}">
+            <div class="reset_error">
+                <span th:text="${error}"></span>
+            </div>
+        </div>
         <form onsubmit="return false">
             <div class="login_field">
-                <p>Enter your Reset Password</p>
-                <label for="found_reset_pwd">Password</label>
-                <input type="password" id="found_reset_pwd">
+                <p th:if="${token}">Enter your Reset Password</p>
+                <label for="found_reset_pwd" th:if="${token}">Password</label>
+                <input type="password" id="found_reset_pwd" th:if="${token}">
                 <p id="found_not_pwd"></p>
-            </div>
-            <div class="login_field">
-                <input id=found_reset_btn type="submit" value="Send Password">
+                <div class="login_field">
+                    <input id=found_reset_btn type="submit" value="Send Password" th:if="${token}" th:data-test="${token}">
+                </div>
             </div>
         </form>
     </div>

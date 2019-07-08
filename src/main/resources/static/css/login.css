@@ -127,3 +127,7 @@ a{
     margin-bottom: 0;
     font-size: 11px;
 }
+
+.reset_error{
+    color: red;
+}

@@ -264,7 +264,7 @@
         getToDoList().add(toDoList);
       }
     }
-    ~~~
+  ~~~
 - `tdl/list`로 `redirect`될 때 현재 유저가 가지고 있는 `ToDoList`객체 출력
 ---
 ### 14일차
@@ -674,9 +674,9 @@ ToDo 등록 테스트 코드 작성하기
 <details markdown="1">
 
 ### 1. 로그인 화면
-![로그인](./img/21.png)
+![로그인](./img/로그인 화면.png)
 #### 1.1. 로그인 검사
-![로그인](./img/44.png)
+![로그인](./img/로그인 검사.png)
 ### 2. 회원가입 화면
 ![회원가입](./img/22.png)
 #### 2.1. 아이디 검사
@@ -693,6 +693,7 @@ ToDo 등록 테스트 코드 작성하기
 ![비었을때](./img/41.png)
 ![형식이아님](./img/42.png)
 ![검사성공](./img/43.png)
+
 ### 3. 초기 화면
 ![초기1](./img/9.png)
 ### 4. To Do 등록
@@ -722,5 +723,35 @@ ToDo 등록 테스트 코드 작성하기
 ![댓글삭제1](./img/54.png)
 ![댓글삭제2](./img/55.png)
 
+### 11. 아이디 찾기
+
+![아이디 찾기](./img/아이디 찾기.png)
+
+![없는 메일 찾기](./img/없는 이메일 조회.png)
+
+![메일 전송](./img/이메일 전송.png)
+
+![메일 답장](./img/아이디 답장.png)
+
+### 12. 비밀번호 찾기
+
+![비번 찾기1](/Users/minkh/Documents/Project-TDL/img/비번 찾기1.png)
+
+![비번 찾기2](/Users/minkh/Documents/Project-TDL/img/비번 찾기2.png)
+
+![비번 찾기3](/Users/minkh/Documents/Project-TDL/img/비번 찾기3.png)
+
+![비번 찾기4](/Users/minkh/Documents/Project-TDL/img/비번 찾기4.png)
+
+![비번 찾기5](/Users/minkh/Documents/Project-TDL/img/비번 찾기5.png)
+
+![비번 찾기6](/Users/minkh/Documents/Project-TDL/img/비번 찾기6.png)
+
+![비번 찾기7](/Users/minkh/Documents/Project-TDL/img/비번 찾기7.png)
+
+
 
 </details>
+
+
+

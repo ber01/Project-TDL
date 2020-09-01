@@ -1,5 +1,4 @@
 # Project-TDL
-- 참여인원 : [민경환](https://www.github.com/ber01), [박동현](https://www.github.com/pdh6547), [신무곤](https://www.github.com/mkshin96), [신재홍](https://www.github.com/woghd9072), [양기석](https://www.github.com/yks095), [엄태균](https://www.github.com/etg6550), [임동훈](https://www.github.com/dongh9508), [최광민](https://www.github.com/rhkd4560), [하상엽](https://www.github.com/hagome0)
 
 ## 목차
 1. [목적](#목적)
@@ -10,6 +9,7 @@
 ## 목적
 - Spring Boot & JPA 학습 및 Web Application(To Do List) 개발
 - Spring Security 학습 및 로그인, 회원가입 구현
+- JUnit을 이용한 테스트 코드 학습 및 작성
 
 ## 개발환경
 |도구|버전|
@@ -674,9 +674,9 @@ ToDo 등록 테스트 코드 작성하기
 <details markdown="1">
 
 ### 1. 로그인 화면
-![로그인](./img/로그인 화면.png)
+![로그인](./img/로그인_화면.png)
 #### 1.1. 로그인 검사
-![로그인](./img/로그인 검사.png)
+![로그인2](./img/로그인_검사.png)
 ### 2. 회원가입 화면
 ![회원가입](./img/22.png)
 #### 2.1. 아이디 검사
@@ -724,32 +724,20 @@ ToDo 등록 테스트 코드 작성하기
 ![댓글삭제2](./img/55.png)
 
 ### 11. 아이디 찾기
-
-![아이디 찾기](./img/아이디 찾기.png)
-
-![없는 메일 찾기](./img/없는 이메일 조회.png)
-
-![메일 전송](./img/이메일 전송.png)
-
-![메일 답장](./img/아이디 답장.png)
+![아이디 찾기](./img/아이디_찾기.png)
+![없는 메일 찾기](./img/없는_이메일_조회.png)
+![메일 전송](./img/이메일_전송.png)
+![메일 답장](./img/아이디_답장.png)
 
 ### 12. 비밀번호 찾기
 
-![비번 찾기1](/Users/minkh/Documents/Project-TDL/img/비번 찾기1.png)
-
-![비번 찾기2](/Users/minkh/Documents/Project-TDL/img/비번 찾기2.png)
-
-![비번 찾기3](/Users/minkh/Documents/Project-TDL/img/비번 찾기3.png)
-
-![비번 찾기4](/Users/minkh/Documents/Project-TDL/img/비번 찾기4.png)
-
-![비번 찾기5](/Users/minkh/Documents/Project-TDL/img/비번 찾기5.png)
-
-![비번 찾기6](/Users/minkh/Documents/Project-TDL/img/비번 찾기6.png)
-
-![비번 찾기7](/Users/minkh/Documents/Project-TDL/img/비번 찾기7.png)
-
-
+![비번찾기1](./img/비번_찾기1.png)
+![비번찾기2](./img/비번_찾기2.png)
+![비번찾기3](./img/비번_찾기3.png)
+![비번찾기4](./img/비번_찾기4.png)
+![비번찾기5](./img/비번_찾기5.png)
+![비번찾기6](./img/비번_찾기6.png)
+![비번찾기7](./img/비번_찾기7.png)
 
 </details>
 

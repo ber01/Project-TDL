@@ -20,7 +20,10 @@
 |데이터베이스|MySQL 8.0.3|
 |빌드 툴|Gradle 5.2.1|
 
+## [API 스펙](https://www.notion.so/Project-TDL-500fb871c36f463a9cb2e3877e388e12)
+
 ## 주요기능
+
 <details markdown="1">
 
 ### 1. 로그인 화면

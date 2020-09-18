@@ -3,7 +3,8 @@
 ## 목차
 1. [목적](#목적)
 2. [개발환경](#개발환경)
-3. [주요기능](#주요기능)
+3. [API 스펙 & 도메인 설명](#API 스펙 & Domain 설명)
+4. [주요기능](#주요기능)
 
 ## 목적
 - Spring Boot & JPA 학습 및 Web Application(To Do List) 개발
@@ -20,7 +21,7 @@
 |데이터베이스|MySQL 8.0.3|
 |빌드 툴|Gradle 5.2.1|
 
-## [API 스펙](https://www.notion.so/Project-TDL-500fb871c36f463a9cb2e3877e388e12)
+## [API 스펙 & Domain 설명](https://www.notion.so/Project-TDL-500fb871c36f463a9cb2e3877e388e12)
 
 ## 주요기능
 

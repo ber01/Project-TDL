@@ -1,0 +1,13 @@
+test:
+  email: 123@email.com
+  password: password
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 구글 클라이언트 아이디
+            client-secret: 구글 클라이언트 보안 비밀
+            scope: profile,email
